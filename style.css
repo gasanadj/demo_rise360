@@ -132,5 +132,70 @@ ul > li:hover {
     cursor: pointer;
     border: none;
 }
+/* 
+------------------Animation------------------- */
+
+.animated-text {
+    position: absolute;
+    top: 20%;
+    left: 30%;
+    text-align: center;
+    z-index: 1;        
+}
+
+.animated-text p {
+    font-weight: 700;
+    font-size: 100px;
+    color: white;
+    opacity: 0;
+}
+
+
+@keyframes fadeInOut {
+    0% {
+        opacity: 0;
+    }
+    25% {
+        opacity: 1;
+    }
+    75% {
+        opacity: 1;
+    }
+    100% {
+        opacity: 0;
+    }
+}
+
+.animated-text .text1 {
+    animation: fadeInOut 2s linear 0s;
+}
+
+.animated-text .text2 {
+    animation: fadeInOut 2s linear 2s;
+}
+
+.animated-text .text3 {
+    animation: fadeInOut 2s linear 4s;
+    animation-fill-mode: forwards; 
+}
+.animated-text.start-animation .text1 {
+    animation-play-state: running;
+}
+
+.animated-text.start-animation .text2 {
+    animation-play-state: running;
+}
+
+.animated-text.start-animation .text3 {
+    animation-play-state: running;
+}
+
+.hidden-content {
+    display: none;
+}
+.animated-text.hide {
+    display: none;
+}
+
 
 
