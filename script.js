@@ -1,12 +1,12 @@
 document.addEventListener("DOMContentLoaded", function () {
-  document.querySelector(".animated-text").classList.add("start-animation");
-
+  const animatedText = document.querySelector(".animated-text");
   const sections = document.querySelectorAll(".hidden-content");
-
+  const body = document.querySelector(".body");
   setTimeout(function () {
-    document.querySelector(".animated-text").classList.add("hide");
-    sections.forEach((section) => {
-      section.classList.remove("hidden-content");
+    animatedText.classList.add("hide");
+    body.style.backgroundColor = "#007aff";
+    sections.forEach((section, index) => {
+      section.style.opacity = 1;
     });
-  }, 6500);
+  }, 9000);
 });

@@ -42,7 +42,7 @@
 }
 
 body {
-    background-color:  #007aff;
+    background-color: #fff;
 }
 
 nav {
@@ -136,66 +136,55 @@ ul > li:hover {
 ------------------Animation------------------- */
 
 .animated-text {
-    position: absolute;
-    top: 20%;
-    left: 30%;
     text-align: center;
-    z-index: 1;        
+    z-index: 1;
+    height: 100vh;
+    background-color: #fff;
+    overflow: hidden;
+}
+
+@keyframes throwIn {
+    0% {
+        opacity: 0;
+        transform: translateY(-100%);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }
 
 .animated-text p {
     font-weight: 700;
-    font-size: 100px;
-    color: white;
+    font-size: 160px;
+    color: #007aff;
     opacity: 0;
-}
-
-
-@keyframes fadeInOut {
-    0% {
-        opacity: 0;
-    }
-    25% {
-        opacity: 1;
-    }
-    75% {
-        opacity: 1;
-    }
-    100% {
-        opacity: 0;
-    }
+    text-transform: uppercase;
+    animation-fill-mode: forwards;
 }
 
 .animated-text .text1 {
-    animation: fadeInOut 2s linear 0s;
+    animation: throwIn 9s ease 0s;
 }
 
 .animated-text .text2 {
-    animation: fadeInOut 2s linear 2s;
+    animation: throwIn 6s ease 4s;
 }
 
 .animated-text .text3 {
-    animation: fadeInOut 2s linear 4s;
-    animation-fill-mode: forwards; 
-}
-.animated-text.start-animation .text1 {
-    animation-play-state: running;
+    animation: throwIn 5s ease 4s;
 }
 
-.animated-text.start-animation .text2 {
-    animation-play-state: running;
-}
-
-.animated-text.start-animation .text3 {
-    animation-play-state: running;
-}
 
 .hidden-content {
-    display: none;
+    opacity: 0;
+    transition: opacity 2s linear;
 }
+
 .animated-text.hide {
     display: none;
 }
+
 
 
 
