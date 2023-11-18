@@ -88,18 +88,22 @@ ul > li:hover {
     background-color: #096cd6;
 }
 
-
-
+header {
+    overflow: hidden;
+    height: 100vh;
+}
 
 /* ---------------Intro section ---------- */
 .intro {
     position: relative;
+    overflow: hidden;
 }
 .intro h1 {
     font-size: 200px;
     text-align: center;
     color: #fff;
-    margin-top: 6%;
+    margin-top: 3%;
+    font-family: "acorn";
 }
 
 .intro img {
@@ -111,8 +115,9 @@ ul > li:hover {
 
 .intro-p {
     position: absolute;
-    top: 40%;
+    top: 45%;
     left: 20%;
+    margin-left: 3%;
 }
 
 .intro-p p {
@@ -120,6 +125,7 @@ ul > li:hover {
     font-size: 24px;
     color: white;
     z-index: 999;
+    font-family: "acorn";
 }
 
 .learn {
@@ -129,6 +135,7 @@ ul > li:hover {
     border-radius: 10px;
     margin-top: 10px;
     font-size: 17px;
+    font-family: "acorn";
     cursor: pointer;
     border: none;
 }
@@ -137,6 +144,7 @@ ul > li:hover {
 
 .animated-text {
     text-align: center;
+    margin-top: -7%;
     z-index: 1;
     height: 100vh;
     background-color: #fff;
@@ -154,6 +162,16 @@ ul > li:hover {
     }
 }
 
+@keyframes throwUp {
+    0% {
+        opacity: 0;
+        transform: translateY(100%) scale(1);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(-10%) scale(1.2);
+    }
+}
 .animated-text p {
     font-weight: 700;
     font-size: 160px;
@@ -161,18 +179,19 @@ ul > li:hover {
     opacity: 0;
     text-transform: uppercase;
     animation-fill-mode: forwards;
+    font-family: "acorn";
 }
 
 .animated-text .text1 {
-    animation: throwIn 9s ease 0s;
+    animation: throwIn 5s ease 0s;
 }
 
 .animated-text .text2 {
-    animation: throwIn 6s ease 4s;
+    animation: throwIn 4s ease 1s;
 }
 
 .animated-text .text3 {
-    animation: throwIn 5s ease 4s;
+    animation: throwIn 3s ease 2s;
 }
 
 
@@ -184,6 +203,179 @@ ul > li:hover {
 .animated-text.hide {
     display: none;
 }
+
+
+/* 
+--------------Bite container-------------------- */
+
+.bite-container {
+    width: 100%;
+    padding-left: 12px;
+    padding-right: 12px;
+    margin: 0 auto;
+    background: #FFF0F6;
+    perspective: 1000px;
+    
+}
+
+.produce {
+    align-items: center;
+    display: flex;
+    justify-content: center;
+    min-height: 100vh;
+    overflow: hidden;
+    /* padding: 78px 0 0; */
+    will-change: transform;
+}
+
+
+.wrap {
+    position: relative;
+    
+}
+
+.inner {
+    margin: 0;
+    max-width: 680px;
+    position: relative;
+    height: 100vh;
+}
+
+.produce-img {
+    transform: translate(-60%,-69%);
+    width: min(14.5vw + 14.5vh,334px);
+    left: 105%;
+    position: absolute;
+    top: 60%;
+    z-index: 1;
+}
+
+.h1 {
+    font-size: 180px;
+    margin: 0;
+    color: #ff0d90;
+    font-weight: bold;
+    text-transform: uppercase;
+    font-family: "acorn";
+}
+
+.h1 span {
+    opacity: 0;
+    transition: opacity 3s ease-in-out;
+}
+
+#one {
+    position: absolute;
+    top: 10%;
+    left: 30%;
+}
+
+#two {
+    position: absolute;
+    left: 125%;
+    top: 40%;
+}
+
+#three {
+    position: absolute;
+    top: 60%;
+    left: 35%;
+}
+
+.number {
+    width: 30px;
+    height: 30px;
+    padding-top: 3px;
+    font-size: 11px;
+    background: #fff;
+    text-align: center;
+    border-radius: 50%;
+    position: absolute;
+    top: 25%;
+    left: 45%;
+    z-index: 1;
+    opacity: 0;
+    transition: opacity 3s ease;
+    font-family: "acorn-light";
+}
+
+.data {
+    width: 300px;
+    height: 110px;
+    background: transparent;
+    border: 1px solid black;
+    padding: 10px;
+    font-family: "acorn-light";
+    color: #363636;
+    opacity: 0;
+    transition: opacity 3s ease;
+}
+
+.data h3 {
+    font-size: 16px;
+}
+
+.data p {
+    font-size: 14px;
+}
+
+
+#data-one {
+    position: absolute;
+    top: 10%;
+    left: 47%;
+}
+
+#data-two {
+    position: absolute;
+    top: 30%;
+    left: 59%;
+}
+
+#no2 {
+    position: absolute;
+    top: 36%;
+    left: 55%;
+}
+
+#data-three {
+    position: absolute;
+    top: 37%;
+    left: 15%;
+}
+
+#no3 {
+    position: absolute;
+    top: 40%;
+    left: 38%;
+}
+
+#data-four {
+    position: absolute;
+    top: 52%;
+    left: 23%;
+    z-index: 1;
+}
+
+#no4 {
+    position: absolute;
+    top: 65%;
+    left: 45%;
+
+}
+
+#data-five {
+    position: absolute;
+    top: 75%;
+    left: 59%;
+}
+
+#no5 {
+    position: absolute;
+    top: 70%;
+    left: 59%;
+}
+
 
 
 
