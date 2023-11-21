@@ -9,133 +9,236 @@
 </head>
 <body>
     <div class="container">
-        <h3 class="title">Fresh Farm Produce for sale</h3>
+        <h3 class="title">Fresh Farm Products for sale</h3>
 
-        <div class="products-container">
-            <div class="product" data-name="p1">
-                <img src="./images/beetroot.jpeg">
-                <h3>Beetroot</h3>
-                <div class="price">$5.00</div>
+        
+
+          <div class="dropdown">
+            <button onclick="toggleDropdown()" class="dropbtn">Select Category</button>
+            <div class="dropdown-content" id="dropdownOptions">
+             <p onclick="filtering('all')">All Categories</p>
+              <p onclick="filtering('vegetables')">Vegetables</p>
+              <p onclick="filtering('fruits')">Fruits</p>
+              <p onclick="filtering('localFood')">Local Food</p>
             </div>
+          </div>
 
-            <div class="product" data-name="p2">
-                <img src="./images/2.png">
-                <h3>Onions</h3>
-                <div class="price">$2.00</div>
-            </div>
-
-            <div class="product" data-name="p3">
-                <img src="./images/3.png">
-                <h3>Tomatoes</h3>
-                <div class="price">$3.00</div>
-            </div>
-
-            <div class="product" data-name="p4">
-                <img src="./images/4.png">
-                <h3>Brinjal</h3>
-                <div class="price">$2.00</div>
-            </div>
-
+          
+        
+        <div class="products-container" >
+            <div class="allCategories" >
+                <div class="categoryTitle vegetables">
+                    <h3>Vegetables</h3>
+                </div>
+                <div class="oneCategory vegetables">
+                    <div class="category" id="Vegetables" >
+                        
+                        <div class="products" id="vegetables">
+                            <div class="product" data-name="p1">
+                                <img src="./images/spinach.jpg">
+                                <h3>Spinach</h3>
+                                <div class="price">$5.00</div>
+                                <button class="buy green-button">Buy now</button>
+                            </div> 
+                
+                             <div class="product" data-name="p2">
+                                <img src="./images/cabbagae.jpeg">
+                                <h3>Cabbagae</h3>
+                                <div class="price">$2.00</div>
+                                <button class="buy green-button">Buy now</button>
+                            </div>
+                
+                            <div class="product" data-name="p3">
+                                <img src="./images/tomatoes.png">
+                                <h3>Tomatoes</h3>
+                                <div class="price">$3.00</div>
+                                <button class="buy green-button">Buy now</button>
+                            </div>
+                
+                            <div class="product" data-name="p4">
+                                <img src="./images/brinjal.png">
+                                <h3>Brinjal</h3>
+                                <div class="price">$2.00</div>
+                                <button class="buy green-button">Buy now</button>
+                            </div>
+                            <div class="product" data-name="p5">
+                                <img src="./images/broccoli.png">
+                                <h3>Broccoli</h3>
+                                <div class="price">$2.00</div>
+                                <button class="buy green-button">Buy now</button>
+                            </div>
+                
+                            <div class="product" data-name="p6">
+                                <img src="./images/beetroot.jpeg">
+                                <h3>Beetroot</h3>
+                                <div class="price">$3.00</div>
+                                <button class="buy green-button">Buy now</button>
+                            </div>
+                
+                            <div class="product" data-name="p7">
+                                <img src="./images/bellp.jpg">
+                                <h3> Peppers</h3>
+                                <div class="price">$2.00</div>
+                                <button class="buy green-button">Buy now</button>
+                            </div>
+                        </div>
+                       
+                    </div> 
+                     <div class="arrows">
+                        <div class="left-arrow " id="leftArrow" onclick="moveRight('vegetables')">
+                            <img src="./images/left-arrow-black.png" alt="">
+                        </div>
+                         <div class="right-arrow" id="rightArrow" onclick="moveLeft('vegetables')">
+                            <img src="./images/right-arrow-black.png" alt="">
+                         </div>
+                    </div> 
+                </div>
+               
+                 <div class="categoryTitle fruits">
+                    <h3>Fruits</h3>
+                </div>
+                <div class="oneCategory fruits">
+                <div class="category" id="fruits">
+                   
+                    <div class="products" id="Fruits">
+                        <div class="product" data-name="p8">
+                            <img src="./images/strawberries.png">
+                            <h3>Strawberries</h3>
+                            <div class="price">$5.00</div>
+                            <button class="buy green-button">Buy now</button>
+                        </div> 
             
-            <div class="product" data-name="p5">
-                <img src="./images/5.png">
-                <h3>Broccoli</h3>
-                <div class="price">$2.00</div>
-            </div>
-
+                         <div class="product" data-name="p9">
+                            <img src="./images/banana.jpg">
+                            <h3>Banana</h3>
+                            <div class="price">$2.00</div>
+                            <button class="buy green-button">Buy now</button>
+                        </div>
             
-            <div class="product" data-name="p6">
-                <img src="./images/6.png">
-                <h3>Potatoes</h3>
-                <div class="price">$2.00</div>
+                        <div class="product" data-name="p10">
+                            <img src="./images/apple.jpg">
+                            <h3>Apple</h3>
+                            <div class="price">$3.00</div>
+                            <button class="buy green-button">Buy now</button>
+                        </div>
+            
+                        <div class="product" data-name="p11">
+                            <img src="./images/orange.jpg">
+                            <h3>Orange</h3>
+                            <div class="price">$2.00</div>
+                            <button class="buy green-button">Buy now</button>
+                        </div>
+                        <div class="product" data-name="p12">
+                            <img src="./images/mango.jpg">
+                            <h3>Mango</h3>
+                            <div class="price">$2.00</div>
+                            <button class="buy green-button">Buy now</button>
+                        </div>
+            
+                        <div class="product" data-name="p13">
+                            <img src="./images/papaya.jpg">
+                            <h3>Papaya</h3>
+                            <div class="price">$3.00</div>
+                            <button class="buy green-button">Buy now</button>
+                        </div>
+            
+                        <div class="product" data-name="p14">
+                            <img src="./images/Avocado.jpg">
+                            <h3>Avocado</h3>
+                            <div class="price">$2.00</div>
+                            <button class="buy green-button">Buy now</button>
+                        </div>
+                    </div>
+                    
+                </div> 
+                <div class="arrows">
+                    <div class="left-arrow " id="leftArrow" onclick="moveRight('Fruits')">
+                        <img src="./images/left-arrow-black.png" alt="">
+                    </div>
+                     <div class="right-arrow" id="rightArrow" onclick="moveLeft('Fruits')">
+                        <img src="./images/right-arrow-black.png" alt="">
+                     </div>
+                </div>
             </div>
 
-            <div class="product" data-name="p7">
-                <img src="./images/cabbagae.jpeg">
-                <h3>Cabbage</h3>
-                <div class="price">$2.00</div>
+                <div class="categoryTitle localFood">
+                    <h3>Local food</h3>
+                </div>
+                <div class="oneCategory localFood">
+                <div class="category" id="localFood">
+                    
+                    <div class="products" id="Local">
+                          
+                    <div class="product" data-name="p15">
+                        <img src="./images/isombe.jpg">
+                        <h3>Isombes</h3>
+                        <div class="price">$5.00</div>
+                        <button class="buy green-button">Buy now</button>
+                    </div> 
+        
+                     <div class="product" data-name="p16">
+                        <img src="./images/matokke.jpg">
+                        <h3>Matokke</h3>
+                        <div class="price">$2.00</div>
+                        <button class="buy green-button">Buy now</button>
+                    </div>
+        
+                    <div class="product" data-name="p17">
+                        <img src="./images/pumpkin.png">
+                        <h3>Pumpkin</h3>
+                        <div class="price">$3.00</div>
+                        <button class="buy green-button">Buy now</button>
+                    </div>
+        
+                    <div class="product" data-name="p18">
+                        <img src="./images/cassava.webp">
+                        <h3>Cassava</h3>
+                        <div class="price">$2.00</div>
+                        <button class="buy green-button">Buy now</button>
+                    </div>
+                    <div class="product" data-name="p19">
+                        <img src="./images/yams.jpg">
+                        <h3>Yams</h3>
+                        <div class="price">$2.00</div>
+                        <button class="buy green-button">Buy now</button>
+                    </div>
+        
+                    <div class="product" data-name="p20">
+                        <img src="./images/Sweet potatoes.jpeg">
+                        <h3>Sweet Potatoes</h3>
+                        <div class="price">$3.00</div>
+                        <button class="buy green-button">Buy now</button>
+                    </div>
+        
+                    <div class="product" data-name="p21">
+                        <img src="./images/potatoes.png">
+                        <h3>Potatoes</h3>
+                        <div class="price">$2.00</div>
+                        <button class="buy green-button">Buy now</button>
+                    </div>
+                    
+                    </div>
+                </div>  
+                <div class="arrows">
+                    <div class="left-arrow " id="leftArrow" onclick="moveRight('Local')">
+                        <img src="./images/left-arrow-black.png" alt="">
+                    </div>
+                     <div class="right-arrow" id="rightArrow" onclick="moveLeft('Local')">
+                        <img src="./images/right-arrow-black.png" alt="">
+                     </div>
+                </div>
+                </div>        
+                    
             </div>
-
-            <div class="product" data-name="p8">
-                <img src="./images/bellp.jpg">
-                <h3>Bell pepper</h3>
-                <div class="price">$2.00</div>
             </div>
-
-            <div class="product" data-name="p9">
-                <img src="./images/spinach.jpg">
-                <h3>Spinach</h3>
-                <div class="price">$2.00</div>
-            </div>
-
-            <div class="product" data-name="p10">
-                <img src="./images/Avocado.jpg">
-                <h3>Avocado</h3>
-                <div class="price">$2.00</div>
-            </div>
-
-            <div class="product" data-name="p11">
-                <img src="./images/Sweet potatoes.jpeg">
-                <h3>Sweet Potatoes</h3>
-                <div class="price">$2.00</div>
-            </div>
-
-            <div class="product" data-name="p12">
-                <img src="./images/peas.webp">
-                <h3>Peas</h3>
-                <div class="price">$2.00</div>
-            </div>
-
-            <div class="product" data-name="p13">
-                <img src="./images/BEans.webp">
-                <h3>Dry Beans</h3>
-                <div class="price">$2.00</div>
-            </div>
-
-            <div class="product" data-name="p14">
-                <img src="./images/carrot.webp">
-                <h3>Carrot</h3>
-                <div class="price">$2.00</div>
-            </div>
-
-            <div class="product" data-name="p15">
-                <img src="./images/cassava.webp">
-                <h3>cassava</h3>
-                <div class="price">$2.00</div>
-            </div>
-
-            <div class="product" data-name="p16">
-                <img src="./images/lettuce.jpeg">
-                <h3>Lettuce</h3>
-                <div class="price">$2.00</div>
-            </div>
-
-            <div class="product" data-name="p17">
-                <img src="./images/1.png">
-                <h3>Strawberry</h3>
-                <div class="price">$2.00</div>
-            </div>
-
-            <div class="product" data-name="p18">
-                <img src="./images/cucumber.jpg">
-                <h3>Cucumber</h3>
-                <div class="price">$2.00</div>
-            </div>
-
-            <div class="product" data-name="p19">
-                <img src="./images/Ginger.png">
-                <h3>Ginger</h3>
-                <div class="price">$2.00</div>
-            </div>
-        </div>
     </div>
 
     <div class="products-preview">
 
         <div class="preview" data-target="p1">
             <i class="fas fa-times"></i>
-            <img src="./images/beetroot.jpeg">
-            <h3>Organic Beetroot</h3>
+            <img src="./images/spinach.jpg">
+            <h3>Organic Spinach</h3>
             <div class="stars">
                 <i class="fas fa-star"></i>
                 <i class="fas fa-star"></i>
@@ -144,7 +247,7 @@
                 <i class="fas fa-star"></i>
                 
             </div>
-            <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
+            <p>Experience the crisp freshness of our organic spinach. Packed with essential nutrients and vibrant green goodness, our spinach adds a nutritious touch to salads, smoothies, and savory dishes. Elevate your meals with the wholesome taste of nature.</p>
             <div class="price">$2.00</div>
             <div class="buttons">
                 <a href="#" class="buy">Buy now</a>
@@ -154,8 +257,8 @@
 
         <div class="preview" data-target="p2">
             <i class="fas fa-times"></i>
-            <img src="./images/2.png">
-            <h3>Organic Onions</h3>
+            <img src="./images/cabbagae.jpeg">
+            <h3>Organic Cabbage</h3>
             <div class="stars">
                 <i class="fas fa-star"></i>
                 <i class="fas fa-star"></i>
@@ -164,7 +267,7 @@
                 <i class="fas fa-star-half-alt"></i>
                 
             </div>
-            <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
+            <p>Grown without pesticides, our cabbage is a crunchy delight that adds a burst of freshness to coleslaws, stir-fries, and soups. Packed with vitamins and antioxidants, it's a wholesome choice for health-conscious food enthusiasts.</p>
             <div class="price">$2.00</div>
             <div class="buttons">
                 <a href="#" class="buy">Buy now</a>
@@ -174,7 +277,7 @@
 
         <div class="preview" data-target="p3">
             <i class="fas fa-times"></i>
-            <img src="./images/3.png">
+            <img src="./images/tomatoes.png">
             <h3>Organic Tomatoes</h3>
             <div class="stars">
                 <i class="fas fa-star"></i>
@@ -184,7 +287,7 @@
                 <i class="fas fa-star-half-alt"></i>
                
             </div>
-            <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
+            <p>Indulge in the succulent juiciness of our organic tomatoes, sun-ripened to perfection. Bursting with flavor, these tomatoes are a versatile addition to sauces, salads, and sandwiches. Enjoy the farm-to-table goodness and savor the taste of pure, organic freshness.</p>
             <div class="price">$2.00</div>
             <div class="buttons">
                 <a href="#" class="buy">Buy now</a>
@@ -194,7 +297,7 @@
 
         <div class="preview" data-target="p4">
             <i class="fas fa-times"></i>
-            <img src="./images/4.png">
+            <img src="./images/brinjal.png">
             <h3>Organic Brinjal</h3>
             <div class="stars">
                 <i class="fas fa-star"></i>
@@ -204,7 +307,7 @@
                 <i class="fas fa-star-half-alt"></i>
                 
             </div>
-            <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
+            <p>our organic brinjal, Grown with care, our brinjal is perfect for grilling, roasting, or adding a hearty element to curries. Elevate your dining experience with the deep, savory flavors of this kitchen essential.</p>
             <div class="price">$2.00</div>
             <div class="buttons">
                 <a href="#" class="buy">Buy now</a>
@@ -214,7 +317,7 @@
 
         <div class="preview" data-target="p5">
             <i class="fas fa-times"></i>
-            <img src="./images/5.png">
+            <img src="./images/broccoli.png">
             <h3>Organic Broccoli</h3>
             <div class="stars">
                 <i class="fas fa-star"></i>
@@ -224,7 +327,7 @@
                 <i class="fas fa-star-half-alt"></i>
                
             </div>
-            <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
+            <p> a nutrient-rich powerhouse that brings a vibrant touch to your meals. Packed with vitamins and antioxidants, our broccoli is a delicious addition to stir-fries, casseroles, and pasta dishes. Taste the goodness of wholesome, farm-fresh greens.</p>
             <div class="price">$2.00</div>
             <div class="buttons">
                 <a href="#" class="buy">Buy now</a>
@@ -234,8 +337,8 @@
 
         <div class="preview" data-target="p6">
             <i class="fas fa-times"></i>
-            <img src="./images/6.png">
-            <h3>Organic Irish Potatoes</h3>
+            <img src="./images/beetroot.jpeg">
+            <h3>Organic Beetroots</h3>
             <div class="stars">
                 <i class="fas fa-star"></i>
                 <i class="fas fa-star"></i>
@@ -243,26 +346,7 @@
                 <i class="fas fa-star"></i>
                 <i class="fas fa-star"></i>
             </div>
-            <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
-            <div class="price">$2.00</div>
-            <div class="buttons">
-                <a href="#" class="buy">Buy now</a>
-                <a href="#" class="add">Add to cart</a>
-            </div>
-        </div>
-
-        <div class="preview" data-target="p6">
-            <i class="fas fa-times"></i>
-            <img src="./images/6.png">
-            <h3>Organic Irish Potatoes</h3>
-            <div class="stars">
-                <i class="fas fa-star"></i>
-                <i class="fas fa-star"></i>
-                <i class="fas fa-star"></i>
-                <i class="fas fa-star"></i>
-                <i class="fas fa-star-half-alt"></i>
-            </div>
-            <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
+            <p> Whether roasted, grated into salads, or blended into smoothies, our beetroots bring a burst of color and a wealth of vitamins to your plate. Rediscover the joy of wholesome eating with this nutrient-packed gem.</p>
             <div class="price">$2.00</div>
             <div class="buttons">
                 <a href="#" class="buy">Buy now</a>
@@ -272,15 +356,16 @@
 
         <div class="preview" data-target="p7">
             <i class="fas fa-times"></i>
-            <img src="./images/cabbagae.jpeg">
-            <h3>Organic Cabbage</h3>
+            <img src="./images/bellp.jpg">
+            <h3>Peppers</h3>
             <div class="stars">
+                <i class="fas fa-star"></i>
                 <i class="fas fa-star"></i>
                 <i class="fas fa-star"></i>
                 <i class="fas fa-star"></i>
                 <i class="fas fa-star-half-alt"></i>
             </div>
-            <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
+            <p>Add a pop of color and crunch to your dishes with our organic bell peppers. Vibrant and full of flavor, these peppers are perfect for stuffing, grilling, or slicing into salads. Packed with vitamins, they're a healthy and delicious choice for adding flair to your culinary creations.</p>
             <div class="price">$2.00</div>
             <div class="buttons">
                 <a href="#" class="buy">Buy now</a>
@@ -290,16 +375,15 @@
 
         <div class="preview" data-target="p8">
             <i class="fas fa-times"></i>
-            <img src="./images/bellp.jpg">
-            <h3>Organic Bell pepper</h3>
+            <img src="./images/strawberries.png">
+            <h3>Organic Strawberry</h3>
             <div class="stars">
-                <i class="fas fa-star"></i>
                 <i class="fas fa-star"></i>
                 <i class="fas fa-star"></i>
                 <i class="fas fa-star"></i>
                 <i class="fas fa-star-half-alt"></i>
             </div>
-            <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
+            <p>Delight your taste buds with the sweet and juicy goodness of our organic strawberries. Perfect for snacking, desserts, or adding a burst of flavor to your morning smoothie. Experience the essence of summer in every bite.</p>
             <div class="price">$2.00</div>
             <div class="buttons">
                 <a href="#" class="buy">Buy now</a>
@@ -309,15 +393,16 @@
 
         <div class="preview" data-target="p9">
             <i class="fas fa-times"></i>
-            <img src="./images/spinach.jpg">
-            <h3>Organic Spinach</h3>
+            <img src="./images/banana.jpg">
+            <h3>Organic Banana</h3>
             <div class="stars">
                 <i class="fas fa-star"></i>
                 <i class="fas fa-star"></i>
                 <i class="fas fa-star"></i>
                 <i class="fas fa-star"></i>
+                <i class="fas fa-star-half-alt"></i>
             </div>
-            <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
+            <p>our bananas make for a healthy and convenient snack. Enjoy them on-the-go, slice into cereal, or blend into creamy smoothies. Satisfy your sweet cravings with the simplicity and goodness of our sweet bananas.</p>
             <div class="price">$2.00</div>
             <div class="buttons">
                 <a href="#" class="buy">Buy now</a>
@@ -327,16 +412,15 @@
 
         <div class="preview" data-target="p10">
             <i class="fas fa-times"></i>
-            <img src="./images/Avocado.jpg">
-            <h3>Organic Avocado</h3>
+            <img src="./images/apple.jpg">
+            <h3>Organic Apple</h3>
             <div class="stars">
                 <i class="fas fa-star"></i>
                 <i class="fas fa-star"></i>
                 <i class="fas fa-star"></i>
                 <i class="fas fa-star"></i>
-                <i class="fas fa-star"></i>
             </div>
-            <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
+            <p>Known for their crispness and vibrant green hue, these apples are a culinary delight. Enjoy them as a refreshing snack, slice into salads for a zesty kick, or use in baking for a burst of tartness. Uncover the crisp and lively taste of our Green Granny Smith Apples.</p>
             <div class="price">$2.00</div>
             <div class="buttons">
                 <a href="#" class="buy">Buy now</a>
@@ -346,15 +430,16 @@
 
         <div class="preview" data-target="p11">
             <i class="fas fa-times"></i>
-            <img src="./images/Sweet potatoes.jpeg">
-            <h3>Organic Sweet potatoes</h3>
+            <img src="./images/orange.jpg">
+            <h3>Organic Orange</h3>
             <div class="stars">
                 <i class="fas fa-star"></i>
                 <i class="fas fa-star"></i>
                 <i class="fas fa-star"></i>
-                
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
             </div>
-            <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
+            <p>Experience the sun-kissed sweetness of our juicy oranges. Each bite is a burst of citrusy delight, packed with vitamin C and natural goodness. Whether juiced for a refreshing drink or enjoyed in segments, our oranges bring a ray of sunshine to your day.</p>
             <div class="price">$2.00</div>
             <div class="buttons">
                 <a href="#" class="buy">Buy now</a>
@@ -364,16 +449,15 @@
 
         <div class="preview" data-target="p12">
             <i class="fas fa-times"></i>
-            <img src="./images/peas.webp">
-            <h3>Peas</h3>
+            <img src="./images/mango.jpg">
+            <h3>Organic Mango</h3>
             <div class="stars">
                 <i class="fas fa-star"></i>
                 <i class="fas fa-star"></i>
                 <i class="fas fa-star"></i>
-                <i class="fas fa-star"></i>
-                <i class="fas fa-star"></i>
+                
             </div>
-            <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
+            <p>Harvested at the peak of ripeness, these mangoes are a tropical delight. Slice and enjoy on its own, blend into smoothies, or add a tropical twist to your favorite desserts. Let the richness of our mangoes transport you to a tropical paradise.</p>
             <div class="price">$2.00</div>
             <div class="buttons">
                 <a href="#" class="buy">Buy now</a>
@@ -383,16 +467,16 @@
 
         <div class="preview" data-target="p13">
             <i class="fas fa-times"></i>
-            <img src="./images/BEans.webp">
-            <h3>Dry Beans</h3>
+            <img src="./images/papaya.jpg">
+            <h3>organic Papaya</h3>
             <div class="stars">
                 <i class="fas fa-star"></i>
                 <i class="fas fa-star"></i>
                 <i class="fas fa-star"></i>
                 <i class="fas fa-star"></i>
-                
+                <i class="fas fa-star"></i>
             </div>
-            <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
+            <p>Bursting with vibrant color and a succulent, sweet flavor, our papayas are a taste of paradise. Enjoy them on their own, blend into smoothies, or add a tropical twist to your fruit salads. Indulge in the richness and freshness of this tropical delight.</p>
             <div class="price">$2.00</div>
             <div class="buttons">
                 <a href="#" class="buy">Buy now</a>
@@ -402,14 +486,16 @@
 
         <div class="preview" data-target="p14">
             <i class="fas fa-times"></i>
-            <img src="./images/carrot.webp">
-            <h3>Carrot</h3>
+            <img src="./images/Avocado.jpg">
+            <h3>Organic Avocado</h3>
             <div class="stars">
                 <i class="fas fa-star"></i>
                 <i class="fas fa-star"></i>
                 <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                
             </div>
-            <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
+            <p>Rich in healthy fats, avocados are perfect for spreading on toast, topping salads, or creating the ultimate guacamole. Elevate your culinary creations with the velvety texture and distinct flavor of our avocados.</p>
             <div class="price">$2.00</div>
             <div class="buttons">
                 <a href="#" class="buy">Buy now</a>
@@ -417,18 +503,16 @@
             </div>
         </div>
 
-        <div class="preview" data-target="p15">
+       <div class="preview" data-target="p15">
             <i class="fas fa-times"></i>
-            <img src="./images/cassava.webp">
-            <h3>Cassava</h3>
+            <img src="./images/isombe.jpg">
+            <h3>Isombe</h3>
             <div class="stars">
                 <i class="fas fa-star"></i>
                 <i class="fas fa-star"></i>
                 <i class="fas fa-star"></i>
-                <i class="fas fa-star"></i>
-                <i class="fas fa-star"></i>
             </div>
-            <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
+            <p>Bursting with traditional spices and the goodness of fresh vegetables, our isombe mix offers a taste of home. Immerse yourself in the warmth and depth of this cherished African dish.</p>
             <div class="price">$2.00</div>
             <div class="buttons">
                 <a href="#" class="buy">Buy now</a>
@@ -438,13 +522,16 @@
 
         <div class="preview" data-target="p16">
             <i class="fas fa-times"></i>
-            <img src="./images/lettuce.jpeg">
-            <h3>Lettuce</h3>
+            <img src="./images/matokke.jpg">
+            <h3>Matokke</h3>
             <div class="stars">
                 <i class="fas fa-star"></i>
                 <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
             </div>
-            <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
+            <p> These Matokke bananas, a staple in Central African cuisine, are perfect for frying, boiling, or incorporating into your favorite dishes. Experience the versatile and satisfying nature of matokke bananas, bringing a touch of exotic taste to your culinary adventures.</p>
             <div class="price">$2.00</div>
             <div class="buttons">
                 <a href="#" class="buy">Buy now</a>
@@ -454,8 +541,24 @@
 
         <div class="preview" data-target="p17">
             <i class="fas fa-times"></i>
-            <img src="./images/1.png">
-            <h3>Organic Strawberry</h3>
+            <img src="./images/pumpkin.png">
+            <h3>Organic Pumpkin</h3>
+            <div class="stars">
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+            </div>
+            <p>Handpicked for their vibrant color and sweet, earthy flavor, our pumpkins are a versatile addition to your kitchen. Roast them for a savory side, blend into comforting soups, or bake into delicious pies. Elevate your fall recipes with the natural richness of our Harvest Pumpkin Medley.</p>
+            <div class="price">$2.00</div>
+            <div class="buttons">
+                <a href="#" class="buy">Buy now</a>
+                <a href="#" class="add">Add to cart</a>
+            </div>
+        </div>
+
+        <div class="preview" data-target="p18">
+            <i class="fas fa-times"></i>
+            <img src="./images/cassava.webp">
+            <h3>Organic Cassava</h3>
             <div class="stars">
                 <i class="fas fa-star"></i>
                 <i class="fas fa-star"></i>
@@ -463,7 +566,7 @@
                 <i class="fas fa-star"></i>
                 <i class="fas fa-star"></i>
             </div>
-            <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
+            <p> A staple in many cuisines, cassava is perfect for frying, boiling, or mashing. With its versatility and neutral taste, it serves as a satisfying base for various dishes. Enjoy the simplicity and heartiness of this root vegetable.</p>
             <div class="price">$2.00</div>
             <div class="buttons">
                 <a href="#" class="buy">Buy now</a>
@@ -471,17 +574,17 @@
             </div>
         </div>
         
-        <div class="preview" data-target="p18">
+        <div class="preview" data-target="p19">
             <i class="fas fa-times"></i>
-            <img src="./images/cucumber.jpg">
-            <h3>Organic Cucumber</h3>
+            <img src="./images/yams.jpg">
+            <h3>Organic Yams</h3>
             <div class="stars">
                 <i class="fas fa-star"></i>
                 <i class="fas fa-star"></i>
                 <i class="fas fa-star"></i>
 
             </div>
-            <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
+            <p>a symbol of wholesome goodness and earthy sweetness. Grown with care and hand-selected for quality, our yams are a versatile kitchen essential. Roast, mash, or bake, and savor the natural richness that yams bring to your table. </p>
             <div class="price">$2.00</div>
             <div class="buttons">
                 <a href="#" class="buy">Buy now</a>
@@ -489,10 +592,10 @@
             </div>
         </div>
 
-        <div class="preview" data-target="p19">
+        <div class="preview" data-target="p20">
             <i class="fas fa-times"></i>
-            <img src="./images/ginger.jpeg">
-            <h3>Organic juicy Ginger</h3>
+            <img src="./images/Sweet potatoes.jpeg">
+            <h3>Organic Sweet Potatoes</h3>
             <div class="stars">
                 <i class="fas fa-star"></i>
                 <i class="fas fa-star"></i>
@@ -500,7 +603,26 @@
                 <i class="fas fa-star"></i>
                 <i class="fas fa-star"></i>
             </div>
-            <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
+            <p>Fall in love with the natural sweetness of our organic sweet potatoes. Roast, mash, or bake them for a wholesome side dish or the perfect base for hearty soups. Packed with vitamins and fibers.</p>
+            <div class="price">$2.00</div>
+            <div class="buttons">
+                <a href="#" class="buy">Buy now</a>
+                <a href="#" class="add">Add to cart</a>
+            </div>
+        </div>
+        
+        <div class="preview" data-target="p21">
+            <i class="fas fa-times"></i>
+            <img src="./images/potatoes.png">
+            <h3>Organic Potatoes</h3>
+            <div class="stars">
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+            </div>
+            <p>Elevate your culinary creations with our Irresistible Irish Potatoes. Known for their smooth texture and buttery taste, these potatoes are a kitchen favorite. Mash them for creamy goodness, roast for a crispy side, or incorporate into hearty stews. </p>
             <div class="price">$2.00</div>
             <div class="buttons">
                 <a href="#" class="buy">Buy now</a>
