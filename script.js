@@ -40,3 +40,9 @@ const observer = new IntersectionObserver(handleIntersection, {
   threshold: 0.5,
 });
 observer.observe(produceSection);
+
+var drops = document.querySelectorAll("span");
+drops.forEach((drop) => {
+  let dur = Math.random() * (20 - 10) + 10;
+  drop.style.animationDuration = 20 / dur + "s";
+});
