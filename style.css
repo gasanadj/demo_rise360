@@ -519,7 +519,7 @@ header {
 }
 
 
-/* -------------Process Section ----------- */
+/* -------------Process Section -----------
 
 .process-row {
     display: flex;
@@ -574,7 +574,7 @@ header {
   
 .expanding-element {
     transition: height 0.3s ease;
-}
+} */
 
 /* -------------Contact section----------------------  */
 
@@ -745,7 +745,36 @@ header {
     margin-left: 24%;
 }
 
+/* -----------Market section---------------- */
+.market {
+    color: white;
+    background: hsl(158, 23%, 18%);
+    height: 100vh;
+    display: flex;
+    max-width: 100vw;
+}
 
+.market-text {
+    margin: 15% 5%;
+}
+
+.market-text h2 {
+    font-family: "acorn";
+    font-size: 120px;
+}
+
+.market-text p {
+    font-family: "acorn-regular";
+    font-size: 30px;
+}
+
+.money-market img {
+    margin-top: 30%;
+    margin-left: 10%;
+    width: 650px;
+    height: auto;
+    border: none;
+}
 
 
 
