@@ -5,6 +5,54 @@
     scroll-behavior: smooth;
 }
 
+:root {
+    --bg-color: rgb(20,20,20);
+    --card-color: rgb(23,23,23);
+    --color-green300: hsla(159, 42%, 88%, 1);
+    --color-green400: hsla(160, 52%, 71%, 1);
+    --color-green500: hsla(172, 95%, 18%, 1);
+    --color-green600: hsla(171, 15%, 35%, 1);
+    --color-green700: hsla(171, 11%, 24%, 1);
+    --color-green800: hsla(158, 23%, 18%, 1);
+    --color-yellow500: hsla(36, 97%, 70%, 1);
+    --color-yellow600: hsla(36, 74%, 25%, 1);
+    --color-yellow700: hsla(36, 91%, 13%, 1);
+    --color-primary: var(--color-green800);
+    --color-primary-accent: var(--color-green400);
+    --color-gradient: linear-gradient( to bottom, hsla(158, 23%, 18%, 0) 0%, hsla(158, 23%, 18%, .013) 9.7%, hsla(158, 23%, 18%, .049) 18.1%, hsla(158, 23%, 18%, .104) 25.5%, hsla(158, 23%, 18%, .175) 31.9%, hsla(158, 23%, 18%, .259) 37.7%, hsla(158, 23%, 18%, .352) 43%, hsla(158, 23%, 18%, .45) 47.9%, hsla(158, 23%, 18%, .55) 52.8%, hsla(158, 23%, 18%, .648) 57.7%, hsla(158, 23%, 18%, .741) 63%, hsla(158, 23%, 18%, .825) 68.7%, hsla(158, 23%, 18%, .896) 75%, hsla(158, 23%, 18%, .951) 82.2%, hsla(158, 23%, 18%, .987) 90.5%, hsl(158, 23%, 18%) 100% );
+    --color-text-primary: var(--color-green400);
+    --font-h1: clamp(3.2rem, .5692rem + 8.238vw, 13.75rem);
+    --font-body: clamp(1rem, .8852rem + .4898vw, 1.375rem);
+    --color-text-secondary: var(--color-green300);
+    --color-text-tertiary: var(--color-green800);
+    --font-h2-display: clamp(1.875rem, 1.301rem + 2.449vw, 3.95rem);
+    --font-h2: clamp(1.5rem, 1.0982rem + 1.7143vw, 2.8125rem);
+    --color-white30: hsla(160, 52%, 71%, .05);
+    --42px: 2.652rem;
+    --64px: 4rem;
+    --14px: 0.875rem;
+    --16px: 1rem;
+    --max-width: 1600px;
+    --20px: 1.25rem;
+    --spacing-l: max( var(--42px), calc(var(--42px) + (84 - 42) * ((100vw - 375px) / (1600 - 375))) );
+    --spacing-xs: max( var(--14px), calc(var(--14px) + (28 - 14) * ((100vw - 375px) / (1600 - 375))) );
+    --font-h3: clamp(1.375rem, 1.1837rem + .8163vw, 2rem);
+    --color-light-border: hsla(160, 52%, 71%, .2);
+    --radius-base: .75rem;
+    --shadow-lg: 0px 50px 100px -20px rgba(0, 0, 0, .15);
+    --zindex-nav: 1000;
+    --zindex-top: 100;
+    --radius-base: .75rem;
+    --color-backdrop: hsla(158, 23%, 18%, .7);
+    --color-white: hsla(0, 0%, 100%, 1);
+    --font-mini: clamp(.875rem, .8367rem + .1633vw, 1rem);
+    --zindex-content: 50;
+    --color-text-secondary: var(--color-green300);
+    --color-opaque: hsla(160, 52%, 71%, .1);
+    --24px: 1.5rem;
+    --font-link: clamp(.875rem, .7985rem + .3265vw, 1.125rem);
+}
+
 @font-face {
     font-family: "acorn";
     src: url('./fonts/Acorn-Bold.woff2') format('woff2'),
@@ -86,7 +134,7 @@ ul > li > a {
 }
 
 ul > li:hover {
-    background-color: #096cd6;
+    background-color: rgb(26, 47, 40);
 }
 
 header {
@@ -176,7 +224,7 @@ header {
 .animated-text p {
     font-weight: 700;
     font-size: 160px;
-    color: #007aff;
+    color: rgb(58, 90, 79);
     opacity: 0;
     text-transform: uppercase;
     animation-fill-mode: forwards;
@@ -523,10 +571,180 @@ header {
 }
 
 
-  /* Add this CSS to your stylesheet or in a <style> tag in your HTML */
+  
 .expanding-element {
-    transition: height 0.3s ease; /* Adjust the duration and easing function as needed */
-  }
+    transition: height 0.3s ease;
+}
+
+/* -------------Contact section----------------------  */
+
+.contact {
+    left: auto;
+    top: auto;
+    width: 500px;
+    height: 600px;
+    right: 40px;
+    bottom: 40px;
+    position: fixed;
+    z-index: var(--zindex-nav);
+    box-shadow: var(--shadow-lg);
+    backdrop-filter: blur(40px) saturate(1.3);
+    overflow: hidden;
+    border-radius: var(--radius-base);
+    box-sizing: border-box;
+    border: 1px solid var(--color-primary-accent)!important;
+    background: var(--color-backdrop)!important;
+    display: none;
+}
+
+.contact-header {
+    background: var(--color-primary-accent);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: var(--16px);
+    line-height: 1.2;
+    position: absolute;
+    z-index: var(--zindex-top);
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.avatar {
+    margin-right: var(--16px);
+}
+
+.avatar img {
+    width: 38px;
+    height: 38px;
+    border-radius: 50%;
+    border: 2px solid var(--color-white);
+}
+
+.contact-header-details {
+    flex: 1;
+    color: var(--color-text-tertiary);
+    font-size: var(--font-mini);
+    font-family: "gt", system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+
+.contact-name {
+    font-size: 18px;
+}
+
+.close {
+    width: var(--42px);
+    height: var(--42px);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: transparent;
+    border: 0;
+    cursor: pointer;
+    transition: all .2s ease-in-out;
+    border-radius: var(--radius-base);
+    fill: var(--color-primary);
+}
+
+.close:hover {
+    background: var(--color-green500);
+}
+
+.contact-info {
+    width: 100%;
+    position: absolute;
+    top: 74px;
+    overflow-y: scroll;
+    height: 526px;
+    z-index: var(--zindex-content);
+    padding: var(--16px);
+    box-sizing: border-box;
+}
+
+.question-holder {
+    display: flex;
+    font-family: "gt", system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    font-size: var(--16px);
+    color: var(--color-text-primary);
+    box-sizing: border-box;
+}
+
+.text-holder {
+    color: var(--color-text-secondary)!important;
+    background: var(--color-opaque)!important;
+    position: relative;
+    display: inline-block;
+    padding: var(--16px);
+    border-radius: var(--16px);
+    background: var(--color-white);
+    color: var(--color-text-primary);
+    margin-bottom: 6px;
+    box-sizing: border-box;
+}
+
+.button-holder {
+    box-sizing: border-box;
+}
+
+.button-holder > .bq {
+    margin-bottom: 6px;
+}
+
+.bq > button {
+    padding: var(--16px) var(--24px);
+    border-radius: var(--42px);
+    background: transparent;
+    border: 2px solid var(--color-primary-accent);
+    color: var(--color-primary-accent);
+    cursor: pointer;
+    transition: all .2s ease-in-out;
+    font-family: "gt", system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    font-size: var(--16px);
+}
+
+.messages {
+   display: flex;
+   font-family: "gt", system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+   font-size: var(--16px);
+   flex-direction: column;
+}
+
+.bot-message {
+    color: var(--color-text-secondary)!important;
+    background: var(--color-opaque)!important;
+    position: relative;
+    display: inline-block;
+    padding: var(--16px);
+    border-radius: var(--16px);
+    background: var(--color-white);
+    color: var(--color-text-primary);
+    margin-bottom: 6px;
+    box-sizing: border-box;
+    align-self: flex-start;
+    justify-self: flex-start;
+
+}
+
+.user-message {
+    background: var(--color-green500)!important;
+    color: var(--color-text-secondary)!important;
+    justify-content: flex-end;
+    position: relative;
+    display: inline-block;
+    padding: var(--16px);
+    border-radius: var(--16px);
+    margin-bottom: 6px;
+    box-sizing: border-box;
+    align-self: flex-end;
+    justify-self: flex-end;
+
+}
+
+
+#outro {
+    margin-left: 24%;
+}
+
 
 
 
