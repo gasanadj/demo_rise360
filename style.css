@@ -776,6 +776,19 @@ header {
     border: none;
 }
 
+.market-text button {
+    background: var(--color-opaque);
+    width: 200px;
+    height: 70px;
+    border-radius: 50px;
+    border: none;
+    color: white;
+    font-family: "acorn-regular";
+    font-size: 23px;
+    margin-top: 3%;
+    cursor: pointer;
+}
+
 
 
 
