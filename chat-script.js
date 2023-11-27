@@ -2,8 +2,10 @@
 // Get auth token
 const token = localStorage.getItem("auth-token");
 const user = localStorage.getItem("user");
-// const decoded = jwtDecode(token);
-// console.log(decoded);
+const parts = token.split(".");
+const payload = JSON.parse(atob(parts[1]));
+console.log(payload.user.id);
+const id = payload.user.id;
 // Socket codes
 
 const socket = io("http://localhost:3000", {
@@ -40,19 +42,23 @@ function appendMessage(data) {
   messageContainer.append(messageElement);
 }
 
-// const socket = io("http://localhost:4000");
-// socket.on("chat-message", (data) => {
-//   appendMessage(`${data.name}: ${data.message}`);
-// });
+// fetch chats
+const fetchChats = async () => {
+  const response = await fetch("http://localhost:3000/chat", {
+    method: "GET",
+  });
+  const result = await response.json();
+  const allChats = result.Message;
+  allChats.map((message, index) => {
+    const messageElement = document.createElement("div");
+    messageElement.innerHTML = `<p class="meta">${message.userName}</p>
+    <p>${message.message}</p>
+    `;
+    id === message.user
+      ? messageElement.classList.add("incoming")
+      : messageElement.classList.add("outgoing");
+    messageContainer.append(messageElement);
+  });
+};
 
-// const name = prompt("What is your name");
-// appendMessage("You Joined");
-// socket.emit("new-user", name);
-
-// socket.on("user-connected", (name) => {
-//   appendMessage(`${name} Joined`);
-// });
-
-// socket.on("user-disconnect", (name) => {
-//   appendMessage(`${name} left`);
-// });
+document.addEventListener("DOMContentLoaded", fetchChats);
