@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Market form</title>
+    <link rel="stylesheet" href="./add_products.css">
+</head>
+<body>
+
+    <!-- The form should contain: the name, description, price, category
+     (either fruit or vegetable) and an image of course. -->
+
+    <div class="main">
+        <div class="register">
+            <h2>Add Products Here</h2>
+            <form id="content" method="post">
+                <label><strong>Name of Product:</strong> </label><br>
+                <input type="text" name="fname" id="name" placeholder="Enter Product Name"><br><br>
+
+                <label><strong>Description:</strong> </label><br>
+                <!-- <input type="text" name="fname" id="description" placeholder="Describe product"><br><br> -->
+                <textarea id="bio" name="bio"  placeholder="Describe product..." maxlength="50">
+                </textarea><br><br>
+                    
+                <label><strong>Price:</strong> </label><br>
+                <input type="number" name="price" id="amount" placeholder="Price in $"><br><br>
+
+
+                <label><strong>Category of Product</strong></label><br>
+                <select id="category">
+                    <option value="">(Select one)</option>
+                    <option value="1">Fruits</option>
+                    <option value="2">vegetables</option>
+                    <option value="3">Local food</option>
+                </select><br><br>
+                    
+                    
+                <label><strong>Upload image</strong></label><br>
+                    <input class="product-image" type="file" name="file"><br><br>
+
+                    <input type="submit" value="Submit" name="Submit" class="submit">
+                    
+            </form>
+
+        </div>
+            
+    </div>
+
+    
+</body>
+</html>
