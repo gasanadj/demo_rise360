@@ -1,5 +1,9 @@
+// import jwtDecode from "./node_modules/jwt-decode/build/esm/index.ts";
 // Get auth token
 const token = localStorage.getItem("auth-token");
+const user = localStorage.getItem("user");
+// const decoded = jwtDecode(token);
+// console.log(decoded);
 // Socket codes
 
 const socket = io("http://localhost:3000", {
@@ -24,9 +28,15 @@ socket.on("chat-message", (data) => {
   appendMessage(data);
 });
 
-function appendMessage(message) {
+function appendMessage(data) {
   const messageElement = document.createElement("div");
-  messageElement.innerHTML = message;
+  messageElement.innerHTML = `<p class="meta">${data.userName}</p>
+  <span class="time">${data.time}</span>
+  <p>${data.msg}</p>
+  `;
+  user === data.userName
+    ? messageElement.classList.add("incoming")
+    : messageElement.classList.add("outgoing");
   messageContainer.append(messageElement);
 }
 
