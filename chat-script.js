@@ -1,9 +1,34 @@
+// Get auth token
+const token = localStorage.getItem("auth-token");
 // Socket codes
 
+const socket = io("http://localhost:3000", {
+  query: { token },
+  transports: ["websocket"],
+});
 // get messages
-// const messageForm = document.getElementById("send-container");
-// const messageInput = document.getElementById("message-input");
-// const messageContainer = document.getElementById("message-container");
+const messageForm = document.getElementById("send-container");
+const messageInput = document.getElementById("message-input");
+const messageContainer = document.getElementById("message-container");
+
+messageForm.addEventListener("submit", (e) => {
+  e.preventDefault();
+  const message = messageInput.value;
+  socket.emit("sent-chat", message);
+  messageInput.value = "";
+});
+
+// Display messages
+
+socket.on("chat-message", (data) => {
+  appendMessage(data);
+});
+
+function appendMessage(message) {
+  const messageElement = document.createElement("div");
+  messageElement.innerHTML = message;
+  messageContainer.append(messageElement);
+}
 
 // const socket = io("http://localhost:4000");
 // socket.on("chat-message", (data) => {
@@ -21,21 +46,3 @@
 // socket.on("user-disconnect", (name) => {
 //   appendMessage(`${name} left`);
 // });
-// messageForm.addEventListener("submit", (e) => {
-//   e.preventDefault();
-//   const message = messageInput.value;
-//   appendMessage(`You: ${message}`);
-//   socket.emit("send-chat-message", message);
-//   messageInput.value = "";
-// });
-
-// function appendMessage(message) {
-//   const messageElement = document.createElement("div");
-//   messageElement.innerHTML = message;
-//   messageContainer.append(messageElement);
-// }
-
-const socket = io("http://localhost:3000");
-socket.on("chat-message", (data) => {
-  console.log(data);
-});
