@@ -1,6 +1,15 @@
+// ----------Declaring constants-----------------
 const table = document.getElementById("product-table");
 const number = document.getElementById("number");
 const token = localStorage.getItem("auth-token");
+const pname = document.getElementById("name");
+const desc = document.getElementById("description");
+const price = document.getElementById("amount");
+const category = document.getElementById("category");
+const images = document.getElementById("file");
+const submitButton = document.getElementById("submit-btn");
+
+// --------------Displaying products-------------------
 document.addEventListener("DOMContentLoaded", async () => {
   await fetch("http://localhost:3000/products", {
     method: "GET",
@@ -39,6 +48,7 @@ const deleteProducts = () => {
   });
 };
 
+// ---------Deleting a product
 const deleteProduct = async (id) => {
   try {
     const result = await fetch(`http://localhost:3000/products/delete/${id}`, {
@@ -59,3 +69,45 @@ const deleteProduct = async (id) => {
     alert(error.message);
   }
 };
+
+// ----------Add Product Modal open
+
+const openModal = () => {
+  document.getElementById("addProductModal").style.display = "block";
+};
+
+function closeModal() {
+  document.getElementById("addProductModal").style.display = "none";
+}
+
+const addButton = document.querySelector("button");
+addButton.addEventListener("click", openModal);
+
+// ---------------Adding a product------------------
+const formData = new FormData();
+submitButton.addEventListener("click", async (e) => {
+  e.preventDefault();
+  formData.append("name", pname.value);
+  formData.append("description", desc.value);
+  formData.append("category", category.value);
+  formData.append("price", price.value);
+  for (let i = 0; i < images.files.length; i++) {
+    formData.append("image", images.files[i]);
+  }
+  try {
+    const result = await fetch("http://localhost:3000/products/add", {
+      method: "POST",
+      headers: {
+        "auth-token": token,
+      },
+      body: formData,
+    });
+    const response = await result.json();
+    if (result.status == 201) {
+      alert(response.Message);
+      window.location.reload();
+    }
+  } catch (error) {
+    alert(error.message);
+  }
+});

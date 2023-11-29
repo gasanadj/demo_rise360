@@ -49,12 +49,15 @@
     </div>
   </div>
   <div class="farm-content">
-    <div class="products">
+    <div class="header-farm">
+      <div class="products">
         <h2>Number of Products: </h2>
         <p id="number">0</p>
         <p id="exp">This is the total count of products that belong to you.
             You can add more products or even delete some.
         </p>
+    </div>
+    <button>Add Product</button>
     </div>
     <table>
         <tr>
@@ -66,6 +69,40 @@
         </tr>
         <tbody id="product-table"></tbody>
     </table>
+  </div>
+
+  <div class="modal" id="addProductModal">
+    <div class="modal-content">
+      <span class="close" onclick="closeModal()">&times;</span>
+      <div class="main">
+        <div class="register">
+            <h2>Add Products Here</h2>
+            <form id="content">
+                <label><strong>Name of Product:</strong> </label><br>
+                <input type="text" name="fname" id="name" placeholder="Enter Product Name" autocomplete="off"><br><br>
+
+                <label><strong>Description:</strong> </label><br>
+                <input type="text" name="desc" id="description" placeholder="Describe product" autocomplete="off"><br><br> 
+                    
+                <label><strong>Price:</strong> </label><br>
+                <input type="text" name="price" id="amount" placeholder="Price in $" autocomplete="off"><br><br>
+
+
+                <label><strong>Category of Product</strong></label><br>
+                <input type="text" name="category" id="category" placeholder="Enter Category" autocomplete="off"><br><br>
+                    
+                    
+                <label><strong>Upload image</strong></label><br>
+                    <input class="product-image" type="file" id="file" name="file"><br><br>
+
+                    <input type="submit" value="Submit" name="Submit" class="submit" id="submit-btn">
+                    
+            </form>
+
+        </div>
+            
+    </div>
+    </div>
   </div>
   <script src="farmers.js"></script>
 </body>
