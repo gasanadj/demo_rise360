@@ -131,3 +131,66 @@ ul > li > svg {
     cursor: pointer;
     fill: white;
 }
+
+.farm-content {
+    width: 70%;
+}
+
+.products {
+    width: 400px;
+    height: 200px;
+    background-color: hsla(158, 23%, 18%, 1);
+    margin: 5%;
+    color: white;
+    padding: 2%;
+    display: flex;
+    flex-wrap: wrap;
+    border-radius: 20px;
+    border: none;
+}
+
+.products p {
+    font-size: 24px;
+    margin-left: 3%;
+}
+
+#exp {
+    font-size: 18px;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+    margin-left: 20px;
+}
+
+th, td {
+    border: 1px solid #dddddd;
+    text-align: left;
+    padding: 8px;
+}
+
+th {
+    background-color: #f2f2f2;
+}
+
+#edit,
+#delete {
+    width: 100px;
+    height: 40px;
+    margin-left: 10px;
+    border: none;
+    border-radius: 10px;
+    color: white;
+    cursor: pointer;
+    font-size: 18px;
+}
+
+#edit {
+    background-color: hsla(158, 23%, 18%, 1);
+}
+
+#delete {
+    background-color: rgb(192, 10, 10);
+}
