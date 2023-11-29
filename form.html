@@ -11,7 +11,7 @@
 <body>
  <div class="wrapper">
     <nav class="nav">
-        <img src="image/logo1.png" alt="logo">
+        <img src="./images/logo1.png" alt="logo">
       
         <div class="nav-button">
             <button class="btn white-btn" id="loginBtn" onclick="login()">Login</button>
@@ -33,15 +33,15 @@
                 <header>Login</header>
             </div>
             <div class="input-box">
-                <input type="text" class="input-field" placeholder="Username or Email">
+                <input type="text" class="input-field" placeholder="Email" id="login-email">
                 <i class="bx bx-user"></i>
             </div>
             <div class="input-box">
-                <input type="password" class="input-field" placeholder="Password">
+                <input type="password" class="input-field" placeholder="Password" id="login-password">
                 <i class="bx bx-lock-alt"></i>
             </div>
             <div class="input-box">
-                <input type="submit" class="submit" value="Sign In">
+                <input type="submit" class="submit" value="Sign In" id="btn-login">
             </div>
             <div class="two-col">
                 <div class="one">
@@ -60,26 +60,29 @@
                 <span>Have an account? <a href="#" onclick="login()">Login</a></span>
                 <header>Sign Up</header>
             </div>
-            <div class="two-forms">
-                <div class="input-box">
-                    <input type="text" class="input-field" placeholder="Firstname">
-                    <i class="bx bx-user"></i>
-                </div>
-                <div class="input-box">
-                    <input type="text" class="input-field" placeholder="Lastname">
-                    <i class="bx bx-user"></i>
-                </div>
-            </div>
             <div class="input-box">
-                <input type="text" class="input-field" placeholder="Email">
+                    <input type="text" class="input-field" placeholder="Full name" id="fname">
+                    <i class="bx bx-user"></i>
+            </div>
+
+            <div class="input-box">
+                <input type="text" class="input-field" placeholder="Email" id="email">
                 <i class="bx bx-envelope"></i>
             </div>
             <div class="input-box">
-                <input type="password" class="input-field" placeholder="Password">
+                <input type="password" class="input-field" placeholder="Password" id="password">
                 <i class="bx bx-lock-alt"></i>
             </div>
             <div class="input-box">
-                <input type="submit" class="submit" value="Register">
+                <input type="text" class="input-field" placeholder="Phone number" id="phone">
+                <i class="bx bx-phone"></i>
+            </div>
+            <div class="input-box">
+                <input type="text" class="input-field" placeholder="Role(seller | buyer)" id="role">
+                <i class="bx bx-briefcase"></i>
+            </div>
+            <div class="input-box">
+                <input type="submit" class="submit" id="btn" value="Register">
             </div>
             <div class="two-col">
                 <div class="one">
@@ -135,6 +138,7 @@
     }
 
 </script>
+<script src="form.js"></script>
 
 </body>
 </html>

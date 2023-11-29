@@ -8,6 +8,13 @@ const price = document.getElementById("amount");
 const category = document.getElementById("category");
 const images = document.getElementById("file");
 const submitButton = document.getElementById("submit-btn");
+const logoutBtn = document.getElementById("logout");
+
+// Check for token
+if (!token) {
+  alert("Please Login First");
+  window.location.href = "./form.html";
+}
 
 // --------------Displaying products-------------------
 document.addEventListener("DOMContentLoaded", async () => {
@@ -110,4 +117,10 @@ submitButton.addEventListener("click", async (e) => {
   } catch (error) {
     alert(error.message);
   }
+});
+
+// logout
+logoutBtn.addEventListener("click", () => {
+  localStorage.removeItem("auth-token");
+  window.location.reload();
 });
