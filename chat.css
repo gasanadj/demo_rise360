@@ -17,6 +17,7 @@ body {
 
 #message-container {
     width: 80%;
+    height: 90vh;
     overflow-y: auto;
 }
 
@@ -44,7 +45,7 @@ h4 {
     padding-bottom: 30px;
     bottom: 0;
     background-color: white;
-    width: 80%;
+    width: 70%;
     display: flex;
 }
 

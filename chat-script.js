@@ -24,6 +24,10 @@ messageForm.addEventListener("submit", (e) => {
   messageInput.value = "";
 });
 
+const scrollToBottom = () => {
+  messageContainer.scrollTop = messageContainer.scrollHeight;
+};
+
 // Display messages
 
 socket.on("chat-message", (data) => {
@@ -40,6 +44,7 @@ function appendMessage(data) {
     ? messageElement.classList.add("incoming")
     : messageElement.classList.add("outgoing");
   messageContainer.append(messageElement);
+  scrollToBottom();
 }
 
 // fetch chats
@@ -49,12 +54,19 @@ const fetchChats = async () => {
   });
   const result = await response.json();
   const allChats = result.Message;
+  console.log(result);
   allChats.map((message, index) => {
     const messageElement = document.createElement("div");
+    const date = message.date;
+    const parts = date.split("T");
+    console.log(parts[1]);
+    const time_parts = parts[1].split(":");
+    const time = `${parseInt(time_parts[0]) + 2}:${time_parts[1]}`;
     messageElement.innerHTML = `<p class="meta">${message.userName}</p>
+    <span class = "time">${time}</span>
     <p>${message.message}</p>
     `;
-    id === message.user
+    id === message.userId
       ? messageElement.classList.add("incoming")
       : messageElement.classList.add("outgoing");
     messageContainer.append(messageElement);
