@@ -6,6 +6,7 @@ registerButton.addEventListener("click", async () => {
   const fname = document.getElementById("fname").value;
   const phone = document.getElementById("phone").value;
   const role = document.getElementById("role").value;
+  const location = document.getElementById("location").value;
   try {
     const result = await fetch("http://localhost:3000/user/register", {
       method: "POST",
@@ -18,6 +19,7 @@ registerButton.addEventListener("click", async () => {
         name: fname,
         role: role,
         phone: phone,
+        location: location,
       }),
     });
     const response = await result.json();
@@ -61,6 +63,8 @@ loginButton.addEventListener("click", async () => {
       if (response.user.role == "seller") {
         window.location.href = "./farmers.html";
       }
+    } else {
+      alert(response.Message);
     }
   } catch (error) {}
 });

@@ -9,6 +9,7 @@ const category = document.getElementById("category");
 const images = document.getElementById("file");
 const submitButton = document.getElementById("submit-btn");
 const logoutBtn = document.getElementById("logout");
+const user = localStorage.getItem("user");
 
 // Check for token
 if (!token) {
@@ -26,8 +27,12 @@ document.addEventListener("DOMContentLoaded", async () => {
     })
     .then((response) => {
       const products = response.Message;
-      number.innerText = products.length;
-      products.map((product, index) => {
+      const ownedProducts = products.filter((product) => {
+        return product.seller == user;
+      });
+      console.log(ownedProducts);
+      number.innerText = ownedProducts.length;
+      ownedProducts.map((product, index) => {
         const tr = document.createElement("tr");
         tr.innerHTML = `
       <td>${product.name}</td>

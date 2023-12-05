@@ -11,7 +11,7 @@
 <body>
  <div class="wrapper">
     <nav class="nav">
-        <img src="./images/logo1.png" alt="logo">
+        <img src="./images/logo1.png" alt="logo" id="home">
       
         <div class="nav-button">
             <button class="btn white-btn" id="loginBtn" onclick="login()">Login</button>
@@ -82,6 +82,10 @@
                 <i class="bx bx-briefcase"></i>
             </div>
             <div class="input-box">
+                <input type="text" class="input-field" placeholder="City" id="location">
+                <i class="bx bx-map"></i>
+            </div>
+            <div class="input-box">
                 <input type="submit" class="submit" id="btn" value="Register">
             </div>
             <div class="two-col">
@@ -136,6 +140,10 @@
         x.style.opacity = 0;
         y.style.opacity = 1;
     }
+
+    document.getElementById("home").addEventListener('click', () => {
+        window.location.href = './index.html'
+    })
 
 </script>
 <script src="form.js"></script>

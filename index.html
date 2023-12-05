@@ -16,10 +16,7 @@
                 <li><a href="market.html">Market</a></li>
             </ul>
             <img src="./images/logo1.png" alt="Logo">
-            <ul>
-                <li><a href="">Weather</a></li>
-                <li><a href="./form.html">Login</a></li>
-                <li><a id="cont">Contact</a></li>
+            <ul id="user-actions">
             </ul>
         </nav>
         <div class="animated-text">
@@ -145,44 +142,6 @@
             </button>
         </div>
     </section>
-    <!-- <section class="processes hidden-content">
-        <div class="process process-row">
-            <div class="pro process-row" id="pro1">
-                <div class="pro-body">
-                    <div class="pro-title">
-                        <h2>Process 1</h2>
-                    </div>
-                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Soluta, a!</p>
-                </div>
-            </div>
-            <div class="pro process-row" id="pro2">
-                <div class="pro-body">
-                    <div class="pro-title">
-                        <h2>Process 2</h2>
-                    </div>
-                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Soluta, a!</p>
-                </div>
-            </div>
-            <div class="pro process-row" id="pro3">
-                <div class="pro-body">
-                    <div class="pro-title">
-                        <h2>Process 3</h2>
-                    </div>
-                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Soluta, a!</p>
-                </div>
-            </div>
-            <div class="pro process-row" id="pro4">
-                <div class="pro-body">
-                    <div class="pro-title">
-                        <h2>Process 4</h2>
-                    </div>
-                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Soluta, a!</p>
-                </div>
-            </div>
-            
-        </div>
-    </section> -->
-
     <section class="contact" id="contact">
         <div class="contact-header">
             <div class="avatar">
@@ -216,6 +175,31 @@
 
         <div class="popup"></div>
     </section>
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+  const userActions = document.getElementById("user-actions");
+  const token = localStorage.getItem("auth-token");
+
+  if (token) {
+    userActions.innerHTML = `
+      <li><a href="#" onclick="logout()">Logout</a></li>
+      
+      <li><a id="cont">Contact</a></li>
+      <li><a href="./farmers.html"> Dashboard</a></li>
+    `;
+  } else {
+    userActions.innerHTML = `
+      <li><a href="./form.html">Login</a></li>
+      <li><a id="cont">Contact</a></li>
+    `;
+  }
+});
+
+function logout() {
+  localStorage.removeItem("auth-token");
+  window.location.href = "./form.html";
+}
+    </script>
     <script src="script.js"></script>
 </body>
 </html>

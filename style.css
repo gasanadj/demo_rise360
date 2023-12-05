@@ -135,6 +135,7 @@ ul > li > a {
 
 ul > li:hover {
     background-color: rgb(26, 47, 40);
+    color: white;
 }
 
 header {

@@ -8,10 +8,19 @@
     <title>Market</title>
 </head>
 <body>
+
+    <nav>
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="">Learn</a></li>
+            <li><a href="market.html">Market</a></li>
+        </ul>
+        <img src="./images/logo1.png" alt="Logo">
+        <ul id="user-actions">
+        </ul>
+    </nav>
     <div class="container">
         <h3 class="title">Fresh Farm Products for sale</h3>
-
-        
 
           <div class="dropdown">
             <button onclick="toggleDropdown()" class="dropbtn">Select Category</button>
@@ -632,5 +641,27 @@
     </div>
 
     <script src="market.js"></script>
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+  const userActions = document.getElementById("user-actions");
+  const token = localStorage.getItem("auth-token");
+
+  if (token) {
+    userActions.innerHTML = `
+      <li><a href="#" onclick="logout()">Logout</a></li>
+      <li><a href="./farmers.html"> Dashboard</a></li>
+    `;
+  } else {
+    userActions.innerHTML = `
+      <li><a href="./form.html">Login</a></li>
+    `;
+  }
+});
+
+function logout() {
+  localStorage.removeItem("auth-token");
+  window.location.href = "./form.html";
+}
+    </script>
 </body>
 </html>
