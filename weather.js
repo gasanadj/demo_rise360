@@ -1,8 +1,11 @@
 document.addEventListener("DOMContentLoaded", async () => {
+  const userData = JSON.parse(localStorage.getItem("userData"));
+  console.log(userData.email);
   const api_key = "b33b9693004ec7f5aa68c57be61c75ee";
 
-  const city = "Kigali";
-  const country_code = "+250";
+  const city = userData.location;
+  const country_code = userData.phone.slice(0, 4);
+  console.log(city, country_code);
 
   const url = `http://api.openweathermap.org/data/2.5/forecast?q=${city},${country_code}&appid=${api_key}&units=metric`;
   const data = await fetch(url, {

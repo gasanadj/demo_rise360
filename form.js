@@ -49,6 +49,8 @@ loginButton.addEventListener("click", async () => {
       }),
     });
     const response = await result.json();
+    localStorage.setItem("userData", JSON.stringify(response.user));
+    console.log(response.user);
     if (result.status == 200) {
       const token = response.token;
       const parts = token.split(".");

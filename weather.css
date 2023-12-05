@@ -8,6 +8,8 @@ body {
 .weather-intro {
     margin-left: 5%;
     margin-top: 3%;
+    overflow-y: auto;
+    height: 90%;
 }
 
 .weather-intro p {
