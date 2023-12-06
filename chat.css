@@ -89,6 +89,7 @@ input {
     background-color: #EEEEF1;
 }
 
+
 .person {
     display: flex;
     margin-top: 10%;
@@ -134,17 +135,18 @@ ul > li > svg {
     fill: white;
 }
 
+/* -------------Farmer.html--------------------- */
+
 .farm-content {
     width: 70%;
 }
 
 .products {
     width: 400px;
-    height: 200px;
+    height: 100px;
     background-color: hsla(158, 23%, 18%, 1);
     margin: 5%;
     color: white;
-    padding: 2%;
     display: flex;
     flex-wrap: wrap;
     border-radius: 20px;
@@ -154,10 +156,6 @@ ul > li > svg {
 .products p {
     font-size: 24px;
     margin-left: 3%;
-}
-
-#exp {
-    font-size: 18px;
 }
 
 table {
@@ -232,8 +230,12 @@ h2 {
     padding: 20px;
 }
 
+.products h2 {
+    padding-top: 8px;
+}
+
 #number {
-    margin-top: 23px;
+    padding-top: 8px;
 }
 
 .register {
@@ -383,6 +385,69 @@ input, textarea{
     .person {
         margin-top: 30%;
         flex-direction: column;
+    }
+}
+
+@media only screen and (max-width: 600px) {
+    table {
+        border: 0;
+    }
+
+    table thead {
+        display: none;
+    }
+
+    table, table tbody, table tr, table td {
+        display: block;
+        width: 100%;
+    }
+
+    table tr {
+        margin-bottom: 15px;
+    }
+
+    table td {
+        text-align: right;
+        padding: 10px;
+        position: relative;
+    }
+
+    table td::before {
+        content: attr(data-label);
+        position: absolute;
+        left: 0;
+        width: 50%;
+        padding-left: 15px;
+        font-weight: bold;
+    }
+    .register {
+        width: 90%;
+    }
+
+    .main {
+        width: 100%;
+    }
+
+    .header-farm button {
+        font-size: 14px;
+        width: 100%;
+    }
+
+    .products p {
+        font-size: 18px;
+    }
+
+    .products {
+        height: 60px;
+    }
+
+    .products h2 {
+        font-size: 14px;
+    }
+
+    #fd {
+        font-size: 16px;
+        margin-left: -20px;
     }
 }
 

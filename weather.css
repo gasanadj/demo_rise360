@@ -49,3 +49,10 @@ h2 {
     display: flex;
     flex-wrap: wrap;
 }
+
+@media screen and (max-width: 600px) {
+    .weather-intro {
+        width: 90%;
+    }
+    
+}
