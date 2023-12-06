@@ -139,8 +139,9 @@ ul > li:hover {
 }
 
 header {
-    overflow: hidden;
     height: 100vh;
+    width: 100%;
+    overflow: hidden;
 }
 
 /* ---------------Intro section ---------- */
@@ -519,64 +520,6 @@ header {
     }
 }
 
-
-/* -------------Process Section -----------
-
-.process-row {
-    display: flex;
-    flex-direction: column;
-    height: 100%;
-    justify-content: flex-end;
-    padding: 30px;
-    width: 100%;
-}
-
-.pro {
-    overflow: hidden;
-    height: 100%;
-}
-
-#pro1 {
-    height: 20px;
-    padding: 30px 32px;
-    will-change: height;
-    border-radius: 14px;
-    background: #009f67;
-}
-
-#pro2 {
-    height: 20px;
-    padding: 0px;
-    will-change: height;
-    border-radius: 12px;
-    background: #2d7323;
-    z-index: 1;
-}
-
-#pro3 {
-    height: 20px;
-    padding: 0px;
-    will-change: height;
-    border-radius: 10px;
-    background: #325009;
-    z-index: 2;
-}
-
-#pro4 {
-    height: 20px;
-    padding: 0px;
-    will-change: height;
-    border-radius: 6px;
-    background: #0d3a25;
-    z-index: 3;
-}
-
-
-  
-.expanding-element {
-    transition: height 0.3s ease;
-} */
-
 /* -------------Contact section----------------------  */
 
 .contact {
@@ -788,6 +731,107 @@ header {
     font-size: 23px;
     margin-top: 3%;
     cursor: pointer;
+}
+
+
+/* ---------Media Queries---------------- */
+
+@media screen and (max-width: 600px) {
+    .intro h1 {
+        font-size: 100px;
+    }
+
+    .intor img {
+        transform: scale(0.7);
+        margin: -13px 30% 0 5%;
+    }
+
+    .intro-p {
+        left: 14%;
+    }
+    .learn {
+        margin-left: 30%;
+    }
+
+    .produce-img {
+       display: none;
+    }
+
+    #one {
+        left: 10%;
+        font-size: 120px;
+    }
+
+    #two {
+        left: 10%;
+        font-size: 120px;
+    }
+
+    #three {
+        left: 10%;
+        font-size: 120px;
+        margin-top: 3%;
+    }
+
+    .weather {
+        flex-direction: column-reverse;
+        justify-content: center;
+        align-items: center;
+        margin-top: 10%;
+    }
+
+    .banner {
+        margin-left: 7%;
+    }
+
+    .banner h1 {
+        font-size: 50px;
+    }
+
+    .banner-text p {
+        font-size: 30px;
+    }
+    .market {
+        flex-direction: column;
+    }
+
+    .market-text {
+        margin: 3% 2% 0 5%;
+    }
+
+    .market-text h2 {
+        font-size: 60px;
+    }
+
+    .money-market img {
+        margin-left: 3%;
+        width: 400px;
+    }
+
+    .market-text p {
+        font-family: "acorn-regular";
+        font-size: 25px;
+    }
+
+    #opening {
+        display: none;
+    }
+    #closing {
+        display: none;
+    }
+
+    .contact {
+        width: 100%;
+        height: 200%;
+        background: var(--color-primary);
+        left: 0;
+        top: 0;
+    }
+
+    .messages {
+        height: 100%;
+    }
+
 }
 
 

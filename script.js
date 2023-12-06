@@ -47,61 +47,6 @@ drops.forEach((drop) => {
   drop.style.animationDuration = 20 / dur + "s";
 });
 
-// // Expanding cards
-// document.addEventListener("DOMContentLoaded", function () {
-//   const ids = ["pro1", "pro2", "pro3", "pro4"];
-//   const elements = ids.map((id) => document.getElementById(id));
-//   let expandingIndex = 0;
-//   let lastScrollTop = 0;
-
-//   function adjustHeightOnScroll() {
-//     const currentScrollTop = window.scrollY || window.pageYOffset;
-
-//     elements.forEach((current, index) => {
-//       var rect = current.getBoundingClientRect();
-//       const isScrollingDown = currentScrollTop > lastScrollTop;
-
-//       if (
-//         (isScrollingDown &&
-//           rect.top < window.innerHeight &&
-//           rect.bottom >= 0) ||
-//         (!isScrollingDown && rect.bottom > 0 && rect.top <= window.innerHeight)
-//       ) {
-//         var height = window.innerHeight - rect.top;
-//         if (index === expandingIndex) {
-//           const maxHeight = 400;
-//           if (height <= maxHeight) {
-//             current.style.transition = "height 0.2s ease-in-out";
-//             current.style.height = height + "px";
-//             current.classList.add("expanding-element");
-//           }
-//           if (height >= maxHeight) {
-//             expandingIndex = isScrollingDown
-//               ? Math.min(expandingIndex + 1, elements.length - 1)
-//               : Math.max(expandingIndex - 1, 0);
-//           }
-//         } else {
-//           const originalHeight = 0;
-//           current.style.transition = "height 0.2s ease-in-out";
-//           current.style.height = originalHeight + "px";
-//           current.classList.remove("expanding-element");
-//         }
-//       } else {
-//         const originalHeight = 0;
-//         current.style.transition = "height 0.1s ease-in-out";
-//         current.style.height = originalHeight + "px";
-//         current.classList.remove("expanding-element");
-//       }
-//     });
-
-//     lastScrollTop = currentScrollTop;
-//   }
-
-//   window.addEventListener("scroll", adjustHeightOnScroll);
-//   window.addEventListener("resize", adjustHeightOnScroll);
-//   adjustHeightOnScroll();
-// });
-
 // contact section
 
 let buttons = document.querySelectorAll(".bq > button");
@@ -242,15 +187,34 @@ document.addEventListener("DOMContentLoaded", function () {
   closeButton.addEventListener("click", function () {
     contactSection.style.display = "none";
   });
+
+  ScrollReveal({
+    reset: true,
+    distance: "80px",
+    duration: 4000,
+    delay: 200,
+  });
+
+  ScrollReveal().reveal(".banner, .banner-text", { origin: "left" });
+  ScrollReveal().reveal(".rain", { origin: "right" });
+  ScrollReveal().reveal(".money-market", { origin: "bottom" });
+  ScrollReveal().reveal(".market-text", { origin: "right" });
+  ScrollReveal().reveal("#data-one, #data-two, #data-five", {
+    origin: "right",
+  });
+  ScrollReveal().reveal("#data-three, #data-four", { origin: "left" });
 });
 
-const btn = document.getElementById("cont");
-const contactSection = document.querySelector(".contact");
-btn.addEventListener("click", () => {
-  contactSection.style.display = "block";
-});
+document.addEventListener("DOMContentLoaded", () => {
+  const btn = document.getElementById("cont");
+  const contactSection = document.querySelector(".contact");
+  btn.addEventListener("click", () => {
+    console.log("clicked");
+    contactSection.style.display = "block";
+  });
 
-const btn2 = document.getElementById("cont1");
-btn2.addEventListener("click", () => {
-  contactSection.style.display = "block";
+  const btn2 = document.getElementById("cont1");
+  btn2.addEventListener("click", () => {
+    contactSection.style.display = "block";
+  });
 });
