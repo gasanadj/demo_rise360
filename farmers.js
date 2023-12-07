@@ -63,6 +63,7 @@ const deleteProducts = () => {
         preConfirm: () => {
           deleteProduct(dataId);
         },
+        icon: "info",
       });
     });
   });
@@ -123,45 +124,53 @@ addButton.addEventListener("click", openModal);
 const formData = new FormData();
 submitButton.addEventListener("click", async (e) => {
   e.preventDefault();
-  formData.append("name", pname.value);
-  formData.append("description", desc.value);
-  formData.append("category", category.value);
-  formData.append("price", price.value);
-  for (let i = 0; i < images.files.length; i++) {
-    formData.append("image", images.files[i]);
-  }
-  try {
-    const result = await fetch(
-      "https://risefarmer360.onrender.com/products/add",
-      {
-        method: "POST",
-        headers: {
-          "auth-token": token,
-        },
-        body: formData,
+  Swal.fire({
+    title: "Confirm",
+    text: "Is the data provided accurate?",
+    confirmButtonText: "Yes",
+    preConfirm: async () => {
+      formData.append("name", pname.value);
+      formData.append("description", desc.value);
+      formData.append("category", category.value);
+      formData.append("price", price.value);
+      for (let i = 0; i < images.files.length; i++) {
+        formData.append("image", images.files[i]);
       }
-    );
-    const response = await result.json();
-    if (result.status == 201) {
-      Swal.fire({
-        title: "Success",
-        text: response.Message,
-        icon: "success",
-        confirmButtonText: "OK",
-        preConfirm: () => {
-          window.location.reload();
-        },
-      });
-    } else {
-      Swal.fire({
-        title: "Error",
-        text: response.Message,
-        icon: "error",
-      });
-    }
-  } catch (error) {
-    alert(error);
-  }
+      try {
+        const result = await fetch(
+          "https://risefarmer360.onrender.com/products/add",
+          {
+            method: "POST",
+            headers: {
+              "auth-token": token,
+            },
+            body: formData,
+          }
+        );
+        const response = await result.json();
+        if (result.status == 201) {
+          Swal.fire({
+            title: "Success",
+            text: response.Message,
+            icon: "success",
+            confirmButtonText: "OK",
+            preConfirm: () => {
+              window.location.reload();
+            },
+          });
+        } else {
+          Swal.fire({
+            title: "Error",
+            text: response.Message,
+            icon: "error",
+          });
+        }
+      } catch (error) {
+        alert(error);
+      }
+    },
+    icon: "info",
+  });
 });
 
 // logout

@@ -8,48 +8,57 @@ registerButton.addEventListener("click", async () => {
   const phone = document.getElementById("phone").value;
   const role = document.getElementById("role").value;
   const location = document.getElementById("location").value;
-  try {
-    const result = await fetch(
-      "https://risefarmer360.onrender.com/user/register",
-      {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({
-          email: email,
-          password: password,
-          name: fname,
-          role: role,
-          phone: phone,
-          location: location,
-        }),
+
+  Swal.fire({
+    title: "Confirm",
+    text: "Is the data provided accurate?",
+    confirmButtonText: "Yes",
+    preConfirm: async () => {
+      try {
+        const result = await fetch(
+          "https://risefarmer360.onrender.com/user/register",
+          {
+            method: "POST",
+            headers: {
+              "Content-Type": "application/json",
+            },
+            body: JSON.stringify({
+              email: email,
+              password: password,
+              name: fname,
+              role: role,
+              phone: phone,
+              location: location,
+            }),
+          }
+        );
+        const response = await result.json();
+        if (result.status == 201) {
+          Swal.fire({
+            title: "Success",
+            text: response.Message,
+            confirmButtonText: "OK",
+            preConfirm: () => {
+              login();
+            },
+            icon: "success",
+          });
+          registerButton.disabled = false;
+        } else {
+          Swal.fire({
+            title: "Error",
+            text: response.Message,
+            icon: "error",
+          });
+        }
+        registerButton.disabled = false;
+      } catch (error) {
+        alert(error);
+        registerButton.disabled = false;
       }
-    );
-    const response = await result.json();
-    if (result.status == 201) {
-      Swal.fire({
-        title: "Success",
-        text: response.Message,
-        confirmButtonText: "OK",
-        preConfirm: () => {
-          login();
-        },
-        icon: "success",
-      });
-      registerButton.disabled = false;
-    } else {
-      Swal.fire({
-        title: "Error",
-        text: response.Message,
-        icon: "error",
-      });
-    }
-    registerButton.disabled = false;
-  } catch (error) {
-    alert(error);
-    registerButton.disabled = false;
-  }
+    },
+    icon: "info",
+  });
 });
 
 loginButton.addEventListener("click", async () => {

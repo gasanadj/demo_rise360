@@ -130,6 +130,8 @@ document.addEventListener("DOMContentLoaded", async () => {
             
         </div>
         <p>${product.description}</p>
+        <p>Owner ${product.seller}</p>
+        <p>Contact ${product.phone}</p>
         <div class="price">$${product.price}</div>
         <div class="buttons">
             <a href="#" class="buy">Buy now</a>
