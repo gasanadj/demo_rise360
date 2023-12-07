@@ -1,6 +1,7 @@
 const registerButton = document.getElementById("btn");
 const loginButton = document.getElementById("btn-login");
 registerButton.addEventListener("click", async () => {
+  registerButton.disabled = true;
   const email = document.getElementById("email").value;
   const password = document.getElementById("password").value;
   const fname = document.getElementById("fname").value;
@@ -8,46 +9,68 @@ registerButton.addEventListener("click", async () => {
   const role = document.getElementById("role").value;
   const location = document.getElementById("location").value;
   try {
-    const result = await fetch("http://localhost:3000/user/register", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({
-        email: email,
-        password: password,
-        name: fname,
-        role: role,
-        phone: phone,
-        location: location,
-      }),
-    });
+    const result = await fetch(
+      "https://risefarmer360.onrender.com/user/register",
+      {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          email: email,
+          password: password,
+          name: fname,
+          role: role,
+          phone: phone,
+          location: location,
+        }),
+      }
+    );
     const response = await result.json();
     if (result.status == 201) {
-      alert(response.Message);
+      Swal.fire({
+        title: "Success",
+        text: response.Message,
+        confirmButtonText: "OK",
+        preConfirm: () => {
+          login();
+        },
+        icon: "success",
+      });
+      registerButton.disabled = false;
     } else {
-      alert(response.Message);
+      Swal.fire({
+        title: "Error",
+        text: response.Message,
+        icon: "error",
+      });
     }
+    registerButton.disabled = false;
   } catch (error) {
     alert(error);
+    registerButton.disabled = false;
   }
 });
 
 loginButton.addEventListener("click", async () => {
   const email = document.getElementById("login-email").value;
   const password = document.getElementById("login-password").value;
+  loginButton.disabled = true;
 
   try {
-    const result = await fetch("http://localhost:3000/user/login", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({
-        email,
-        password,
-      }),
-    });
+    const result = await fetch(
+      "https://risefarmer360.onrender.com/user/login",
+      {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          email,
+          password,
+        }),
+      }
+    );
     const response = await result.json();
     localStorage.setItem("userData", JSON.stringify(response.user));
     console.log(response.user);
@@ -61,12 +84,41 @@ loginButton.addEventListener("click", async () => {
       localStorage.setItem("user", user);
       localStorage.setItem("role", role);
       console.log(response.user.role == "seller");
-      alert("User Login Successful");
       if (response.user.role == "seller") {
         window.location.href = "./farmers.html";
       }
     } else {
-      alert(response.Message);
+      Swal.fire({
+        title: "Error",
+        text: response.Message,
+        icon: "error",
+      });
+      loginButton.disabled = false;
     }
-  } catch (error) {}
+  } catch (error) {
+    loginButton.disabled = false;
+  }
 });
+
+var a = document.getElementById("loginBtn");
+var b = document.getElementById("registerBtn");
+var x = document.getElementById("login");
+var y = document.getElementById("register");
+
+function login() {
+  x.style.left = "4px";
+  y.style.right = "-520px";
+  a.className += " white-btn";
+  b.className = "btn";
+  x.style.opacity = 1;
+  y.style.opacity = 0;
+}
+
+function register() {
+  x.style.left = "-510px";
+  y.style.right = "5px";
+  a.className = "btn";
+  b.className += " white-btn";
+  x.style.opacity = 0;
+  y.style.opacity = 1;
+}

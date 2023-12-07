@@ -76,7 +76,7 @@ const veggies = document.getElementById("vegetables");
 const fruits = document.getElementById("Fruits");
 const locals = document.getElementById("Local");
 document.addEventListener("DOMContentLoaded", async () => {
-  await fetch("http://localhost:3000/products", {
+  await fetch("https://risefarmer360.onrender.com/products", {
     method: "GET",
   })
     .then(async (res) => {

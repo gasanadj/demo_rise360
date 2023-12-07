@@ -30,14 +30,14 @@
         <div class="login-container" id="login">
             <div class="top">
                 <span>Don't have an account? <a href="#" onclick="register()">Sign Up</a></span>
-                <header>Login</header>
+                <header>Farmer Login</header>
             </div>
             <div class="input-box">
-                <input type="text" class="input-field" placeholder="Email" id="login-email">
+                <input type="text" class="input-field" placeholder="Email" id="login-email" autocomplete="off">
                 <i class="bx bx-user"></i>
             </div>
             <div class="input-box">
-                <input type="password" class="input-field" placeholder="Password" id="login-password">
+                <input type="password" class="input-field" placeholder="Password" id="login-password" autocomplete="off">
                 <i class="bx bx-lock-alt"></i>
             </div>
             <div class="input-box">
@@ -58,31 +58,31 @@
         <div class="register-container" id="register">
             <div class="top">
                 <span>Have an account? <a href="#" onclick="login()">Login</a></span>
-                <header>Sign Up</header>
+                <header>Farmer Sign Up</header>
             </div>
             <div class="input-box">
-                    <input type="text" class="input-field" placeholder="Full name" id="fname">
+                    <input type="text" class="input-field" placeholder="Full name" id="fname" autocomplete="off">
                     <i class="bx bx-user"></i>
             </div>
 
             <div class="input-box">
-                <input type="text" class="input-field" placeholder="Email" id="email">
+                <input type="text" class="input-field" placeholder="Email" id="email" autocomplete="off">
                 <i class="bx bx-envelope"></i>
             </div>
             <div class="input-box">
-                <input type="password" class="input-field" placeholder="Password" id="password">
+                <input type="password" class="input-field" placeholder="Password" id="password" autocomplete="off">
                 <i class="bx bx-lock-alt"></i>
             </div>
             <div class="input-box">
-                <input type="text" class="input-field" placeholder="Phone number" id="phone">
+                <input type="text" class="input-field" placeholder="Phone number" id="phone" autocomplete="off">
                 <i class="bx bx-phone"></i>
             </div>
             <div class="input-box">
-                <input type="text" class="input-field" placeholder="Role(seller | buyer)" id="role">
+                <input type="text" class="input-field" placeholder="Role(seller | buyer)" id="role" autocomplete="off">
                 <i class="bx bx-briefcase"></i>
             </div>
             <div class="input-box">
-                <input type="text" class="input-field" placeholder="City" id="location">
+                <input type="text" class="input-field" placeholder="City" id="location" autocomplete="off">
                 <i class="bx bx-map"></i>
             </div>
             <div class="input-box">
@@ -118,34 +118,12 @@
 
 <script>
 
-    var a = document.getElementById("loginBtn");
-    var b = document.getElementById("registerBtn");
-    var x = document.getElementById("login");
-    var y = document.getElementById("register");
-
-    function login() {
-        x.style.left = "4px";
-        y.style.right = "-520px";
-        a.className += " white-btn";
-        b.className = "btn";
-        x.style.opacity = 1;
-        y.style.opacity = 0;
-    }
-
-    function register() {
-        x.style.left = "-510px";
-        y.style.right = "5px";
-        a.className = "btn";
-        b.className += " white-btn";
-        x.style.opacity = 0;
-        y.style.opacity = 1;
-    }
-
     document.getElementById("home").addEventListener('click', () => {
         window.location.href = './index.html'
     })
 
 </script>
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 <script src="form.js"></script>
 
 </body>

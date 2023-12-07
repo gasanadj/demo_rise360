@@ -19,7 +19,7 @@ if (!token) {
 
 // --------------Displaying products-------------------
 document.addEventListener("DOMContentLoaded", async () => {
-  await fetch("http://localhost:3000/products", {
+  await fetch("https://risefarmer360.onrender.com/products", {
     method: "GET",
   })
     .then((res) => {
@@ -55,7 +55,15 @@ const deleteProducts = () => {
   deleteButtons.forEach((button) => {
     button.addEventListener("click", () => {
       const dataId = button.dataset.id;
-      deleteProduct(dataId);
+      Swal.fire({
+        title: "Confirm",
+        text: "Are you sure you want to delete the product",
+        confirmButtonText: "Yes",
+        cancelButtonText: "Cancel",
+        preConfirm: () => {
+          deleteProduct(dataId);
+        },
+      });
     });
   });
 };
@@ -63,19 +71,35 @@ const deleteProducts = () => {
 // ---------Deleting a product
 const deleteProduct = async (id) => {
   try {
-    const result = await fetch(`http://localhost:3000/products/delete/${id}`, {
-      method: "DELETE",
-      headers: {
-        "Content-Type": "application/json",
-        "auth-token": token,
-      },
-      mode: "cors",
-    });
+    const result = await fetch(
+      `https://risefarmer360.onrender.com/products/delete/${id}`,
+      {
+        method: "DELETE",
+        headers: {
+          "Content-Type": "application/json",
+          "auth-token": token,
+        },
+        mode: "cors",
+      }
+    );
     const response = await result.json();
     console.log(response);
     if (result.status == 200) {
-      alert(response.Message);
-      window.location.reload();
+      Swal.fire({
+        title: "Success",
+        text: response.Message,
+        icon: "success",
+        confirmButtonText: "OK",
+        preConfirm: () => {
+          window.location.reload();
+        },
+      });
+    } else {
+      Swal.fire({
+        title: "Error",
+        text: response.Message,
+        icon: "error",
+      });
     }
   } catch (error) {
     alert(error.message);
@@ -107,25 +131,41 @@ submitButton.addEventListener("click", async (e) => {
     formData.append("image", images.files[i]);
   }
   try {
-    const result = await fetch("http://localhost:3000/products/add", {
-      method: "POST",
-      headers: {
-        "auth-token": token,
-      },
-      body: formData,
-    });
+    const result = await fetch(
+      "https://risefarmer360.onrender.com/products/add",
+      {
+        method: "POST",
+        headers: {
+          "auth-token": token,
+        },
+        body: formData,
+      }
+    );
     const response = await result.json();
     if (result.status == 201) {
-      alert(response.Message);
-      window.location.reload();
+      Swal.fire({
+        title: "Success",
+        text: response.Message,
+        icon: "success",
+        confirmButtonText: "OK",
+        preConfirm: () => {
+          window.location.reload();
+        },
+      });
+    } else {
+      Swal.fire({
+        title: "Error",
+        text: response.Message,
+        icon: "error",
+      });
     }
   } catch (error) {
-    alert(error.message);
+    alert(error);
   }
 });
 
 // logout
 logoutBtn.addEventListener("click", () => {
   localStorage.removeItem("auth-token");
-  window.location.reload();
+  window.location.href = "./form.html";
 });

@@ -8,7 +8,7 @@ console.log(payload.user.id);
 const id = payload.user.id;
 // Socket codes
 
-const socket = io("http://localhost:3000", {
+const socket = io("https://risefarmer360.onrender.com", {
   query: { token },
   transports: ["websocket"],
 });
@@ -49,7 +49,7 @@ function appendMessage(data) {
 
 // fetch chats
 const fetchChats = async () => {
-  const response = await fetch("http://localhost:3000/chat", {
+  const response = await fetch("https://risefarmer360.onrender.com/chat", {
     method: "GET",
   });
   const result = await response.json();
