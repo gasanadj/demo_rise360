@@ -83,7 +83,7 @@ document.addEventListener("DOMContentLoaded", async () => {
       return await res.json();
     })
     .then((data) => {
-      const products = data.Message;
+      var products = data.Message;
       let index = 1;
       console.log(products);
       products.forEach((product) => {
@@ -135,7 +135,7 @@ document.addEventListener("DOMContentLoaded", async () => {
         <div class="price">$${product.price}</div>
         <div class="buttons">
             <a href="#" class="buy">Buy now</a>
-            <a href="#" class="add">Add to cart</a>
+            <a href="#" onclick="addToCart('${product._id}', '${product.name}', ${product.price})" class="add" data-product-id="${product._id}" data-product-name="${product.name}" data-product-price="${product.price}">Add to cart</a>
         </div>
     </div>
         `;
@@ -165,4 +165,75 @@ document.addEventListener("DOMContentLoaded", async () => {
           });
         });
     });
+});
+
+const shoppingCart = [];
+const addToCart = (id, name, price) => {
+  const existingItem = shoppingCart.find((item) => item.id === id);
+
+  if (existingItem) {
+    existingItem.quantity += 1;
+  } else {
+    shoppingCart.push({
+      id,
+      name,
+      price,
+      quantity: 1,
+    });
+  }
+  alert("Product added to cart successfully!");
+};
+
+const myBtn = document.getElementById("btn-checkout");
+myBtn.addEventListener("click", () => {
+  // console.log(shoppingCart);
+  // const stringifiedCart = JSON.stringify(shoppingCart);
+  // localStorage.setItem("cart", stringifiedCart);
+  // window.location.href = "./chekout.html";
+  if (shoppingCart.length > 0) {
+    // Use the Swal.fire method to display a custom alert
+    Swal.fire({
+      title: "Shopping Cart",
+      html: formatCartForAlert(shoppingCart),
+      icon: "info",
+      confirmButtonText: "Proceed to checkout",
+      preConfirm: async () => {
+        fetch("https://risefarmer360.onrender.com/create-checkout-session", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({
+            cart: shoppingCart,
+          }),
+        })
+          .then((res) => {
+            if (res.ok) return res.json();
+            return res.json().then((json) => Promise.reject(json));
+          })
+          .then(({ url }) => {
+            console.log(url);
+            window.location = url;
+          })
+          .catch((e) => console.error(e.error));
+      },
+    });
+  } else {
+    Swal.fire({
+      title: "Empty Cart",
+      text: "Your cart is empty. Add items before checking out.",
+      icon: "warning",
+      confirmButtonText: "OK",
+    });
+  }
+  function formatCartForAlert(cart) {
+    return cart
+      .map(
+        (item) =>
+          `<p>${item.name} - Quantity: ${item.quantity} - Price: $${
+            item.price * item.quantity
+          }</p>`
+      )
+      .join("");
+  }
 });
