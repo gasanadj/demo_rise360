@@ -10,6 +10,7 @@ const images = document.getElementById("file");
 const submitButton = document.getElementById("submit-btn");
 const logoutBtn = document.getElementById("logout");
 const user = localStorage.getItem("user");
+const person = document.getElementById("person-name");
 
 // Check for token
 if (!token) {
@@ -19,6 +20,7 @@ if (!token) {
 
 // --------------Displaying products-------------------
 document.addEventListener("DOMContentLoaded", async () => {
+  person.innerText = user;
   await fetch("https://risefarmer360.onrender.com/products", {
     method: "GET",
   })

@@ -643,12 +643,19 @@
         document.addEventListener("DOMContentLoaded", function() {
   const userActions = document.getElementById("user-actions");
   const token = localStorage.getItem("auth-token");
+  const role = localStorage.getItem("role")
 
   if (token) {
-    userActions.innerHTML = `
-      <li><a href="#" onclick="logout()">Logout</a></li>
-      <li><a href="./farmers.html"> Dashboard</a></li>
+    if (role == 'seller') {
+        userActions.innerHTML = `
+        <li><a href="#" onclick="logout()">Logout</a></li>
+        <li><a href="./farmers.html"> Dashboard</a></li>
     `;
+    } else {
+        userActions.innerHTML = `
+      <li><a href="#" onclick="logout()">Logout</a></li>
+    `;
+    }
   } else {
     userActions.innerHTML = `
       <li><a href="./form.html">Login</a></li>

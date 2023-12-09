@@ -1,3 +1,5 @@
+const token = localStorage.getItem("auth-token");
+const userData = JSON.parse(localStorage.getItem("userData"));
 const previewContainer = document.querySelector(".products-preview");
 const vegetables = ["p4", "p5", "p6", "p7"];
 let currentPosition = 0;
@@ -170,26 +172,41 @@ document.addEventListener("DOMContentLoaded", async () => {
 const shoppingCart = [];
 const addToCart = (id, name, price) => {
   const existingItem = shoppingCart.find((item) => item.id === id);
-
-  if (existingItem) {
-    existingItem.quantity += 1;
-  } else {
-    shoppingCart.push({
-      id,
-      name,
-      price,
-      quantity: 1,
+  if (!token) {
+    Swal.fire({
+      title: "Authentication Required",
+      icon: "info",
+      text: "Login in first to start shopping",
     });
+  } else {
+    if (existingItem) {
+      existingItem.quantity += 1;
+    } else {
+      shoppingCart.push({
+        id,
+        name,
+        price,
+        quantity: 1,
+      });
+    }
+    alert("Product added to cart successfully!");
   }
-  alert("Product added to cart successfully!");
+};
+
+const incrementItem = (index) => {
+  shoppingCart[index].quantity += 1;
+  formatCartForAlert(shoppingCart);
+};
+
+const decrementItem = (index) => {
+  if (shoppingCart[index].quantity > 1) {
+    shoppingCart[index].quantity -= 1;
+  }
+  formatCartForAlert(shoppingCart);
 };
 
 const myBtn = document.getElementById("btn-checkout");
 myBtn.addEventListener("click", () => {
-  // console.log(shoppingCart);
-  // const stringifiedCart = JSON.stringify(shoppingCart);
-  // localStorage.setItem("cart", stringifiedCart);
-  // window.location.href = "./chekout.html";
   if (shoppingCart.length > 0) {
     // Use the Swal.fire method to display a custom alert
     Swal.fire({
@@ -205,6 +222,7 @@ myBtn.addEventListener("click", () => {
           },
           body: JSON.stringify({
             cart: shoppingCart,
+            userEmail: userData.email,
           }),
         })
           .then((res) => {
@@ -226,14 +244,20 @@ myBtn.addEventListener("click", () => {
       confirmButtonText: "OK",
     });
   }
-  function formatCartForAlert(cart) {
-    return cart
-      .map(
-        (item) =>
-          `<p>${item.name} - Quantity: ${item.quantity} - Price: $${
-            item.price * item.quantity
-          }</p>`
-      )
-      .join("");
-  }
 });
+function formatCartForAlert(cart) {
+  return cart
+    .map(
+      (item, index) =>
+        `
+        <div class="cart-items">
+        <button onclick="decrementIndex(${index})">-</button>
+        <p>${item.name} - Quantity: ${item.quantity} - Price: $${
+          item.price * item.quantity
+        }</p>
+        <button onclick = "incrementItem(${index})">+</button>
+        </div>
+        `
+    )
+    .join("");
+}

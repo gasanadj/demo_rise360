@@ -95,6 +95,8 @@ loginButton.addEventListener("click", async () => {
       console.log(response.user.role == "seller");
       if (response.user.role == "seller") {
         window.location.href = "./farmers.html";
+      } else {
+        window.location.href = "./market.html";
       }
     } else {
       Swal.fire({

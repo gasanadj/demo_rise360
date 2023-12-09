@@ -415,5 +415,16 @@ ul > li > a {
     cursor: pointer;
 }
 
+.cart-items {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 10px;
+}
 
+.cart-items button {
+    width: 50px;
+    height: 50px;
+    font-size: 18px;
+    cursor: pointer;
+}
 
