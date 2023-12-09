@@ -753,25 +753,51 @@ header {
     display: flex;
     max-width: 100vw;
 }
+.market2 {
+    color: black;
+    background: hsl(160, 23%, 97%);
+    height: 100vh;
+    display: flex;
+    max-width: 100vw;
+}
+.market-text2 {
+    margin: 15% 5%;
+}
 
 .market-text {
     margin: 15% 5%;
 }
 
-.market-text h2 {
+.market-text2 h2 {
     font-family: "acorn";
     font-size: 120px;
 }
 
+.market-text h2 {
+    font-family: "acorn";
+    font-size: 100px;
+}
+
+.market-text2 p {
+    font-family: "acorn-regular";
+    font-size: 25px;
+}
 .market-text p {
     font-family: "acorn-regular";
-    font-size: 30px;
+    font-size: 25px;
+}
+.money-market2 img {
+    margin-top: 20%;
+    margin-left: 7%;
+    width: 600px;
+    height: auto;
+    border: none;
 }
 
 .money-market img {
-    margin-top: 30%;
-    margin-left: 10%;
-    width: 650px;
+    margin-top: 20%;
+    margin-left: 7%;
+    width: 600px;
     height: auto;
     border: none;
 }
@@ -788,7 +814,29 @@ header {
     margin-top: 3%;
     cursor: pointer;
 }
-
+.market-text2 button {
+    background: var(--color-opaque);
+    width: 200px;
+    height: 70px;
+    border-radius: 50px;
+    border: none;
+    color: black;
+    font-family: "acorn-regular";
+    font-size: 23px;
+    margin-top: 3%;
+    cursor: pointer;
+}
+.footer{
+    color: white;
+    background: hsl(158, 23%, 18%);
+    height: 170px;
+    display: flex;
+    max-width: 100%;
+    padding: 111px 0 30px;
+    position: relative;
+    z-index: 0;
+    padding-left: 500px;
+}
 
 
 
