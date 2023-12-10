@@ -45,7 +45,7 @@ Insert gif or link to demo
 
 The backend swagger documentation can be found here
 
-[Documentation](https://https://risefarmer360.onrender.com/api-docs)
+[Documentation](https://risefarmer360.onrender.com/api-docs)
 
 ## Run Locally
 
