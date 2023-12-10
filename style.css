@@ -733,6 +733,42 @@ header {
     cursor: pointer;
 }
 
+/* ------------Learn section---------------- */
+
+
+.market2 {
+    color: black;
+    background: hsl(160, 23%, 97%);
+    height: 100vh;
+    display: flex;
+    max-width: 100vw;
+}
+.market-text2 {
+    margin: 15% 5%;
+}
+
+
+.market-text2 h2 {
+    font-family: "acorn";
+    font-size: 120px;
+}
+
+
+.market-text2 p {
+    font-family: "acorn-regular";
+    font-size: 25px;
+}
+
+
+.money-market img {
+    margin-top: 20%;
+    margin-left: 7%;
+    width: 600px;
+    height: auto;
+    border: none;
+}
+
+
 
 /* ---------Media Queries---------------- */
 
