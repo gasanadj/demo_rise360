@@ -2988,7 +2988,7 @@ input, select, textarea {
 		max-width: 80%;
 		height: 100%;
 		-webkit-overflow-scrolling: touch;
-		background: #585858;
+		background: hsl(158, 23%, 18%);
 		color: #ffffff;
 		cursor: default;
 		visibility: hidden;
