@@ -741,10 +741,11 @@ header {
     background: hsl(160, 23%, 97%);
     height: 100vh;
     display: flex;
+    flex-direction: row-reverse;
     max-width: 100vw;
 }
 .market-text2 {
-    margin: 15% 5%;
+    margin: 15% 3%;
 }
 
 
@@ -760,12 +761,25 @@ header {
 }
 
 
-.money-market img {
+.money-market2 img {
     margin-top: 20%;
-    margin-left: 7%;
+    margin-right: 7%;
     width: 600px;
     height: auto;
     border: none;
+}
+
+.market-text2 button {
+    background: hsl(158, 23%, 18%);
+    width: 200px;
+    height: 70px;
+    border-radius: 50px;
+    border: none;
+    color: white;
+    font-family: "acorn-regular";
+    font-size: 23px;
+    margin-top: 3%;
+    cursor: pointer;
 }
 
 

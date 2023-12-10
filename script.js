@@ -203,6 +203,8 @@ document.addEventListener("DOMContentLoaded", function () {
     origin: "right",
   });
   ScrollReveal().reveal("#data-three, #data-four", { origin: "left" });
+  ScrollReveal().reveal(".money-market2", { origin: "top" });
+  ScrollReveal().reveal(".market-text2", { origin: "left" });
 });
 
 document.addEventListener("DOMContentLoaded", () => {
