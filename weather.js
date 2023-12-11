@@ -7,7 +7,7 @@ document.addEventListener("DOMContentLoaded", async () => {
   const country_code = userData.phone.slice(0, 4);
   console.log(city, country_code);
 
-  const url = `http://api.openweathermap.org/data/2.5/forecast?q=${city},${country_code}&appid=${api_key}&units=metric`;
+  const url = `https://api.openweathermap.org/data/2.5/forecast?q=${city},${country_code}&appid=${api_key}&units=metric`;
   const data = await fetch(url, {
     method: "GET",
   }).then(async (res) => {
