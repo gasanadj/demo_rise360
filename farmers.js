@@ -49,8 +49,87 @@ document.addEventListener("DOMContentLoaded", async () => {
         table.append(tr);
       });
     })
-    .then(() => deleteProducts());
+    .then(() => deleteProducts())
+    .then(() => updateProducts());
 });
+
+const updateProducts = () => {
+  const editButtons = [...document.getElementsByClassName("btn-edit")];
+  editButtons.forEach((button) => {
+    button.addEventListener("click", async () => {
+      const dataId = button.dataset.id;
+      await fetch(`http://localhost:3000/products/${dataId}`, {
+        method: "GET",
+        headers: {
+          "Content-Type": "application/json",
+          "auth-token": token,
+        },
+      })
+        .then(async (res) => {
+          if (res.ok) return res.json();
+        })
+        .then(({ product }) => {
+          console.log(product);
+          const formHTML = `
+          <form id="content">
+          <label><strong>Name of Product:</strong> </label><br>
+          <input type="text" name="fname" id="pname" placeholder="Enter Product Name" autocomplete="off" value = ${product.name}><br><br>
+
+          <label><strong>Description:</strong> </label><br>
+          <input type="text" name="desc" id="pdescription" placeholder="Describe product" autocomplete="off" value = ${product.description}><br><br> 
+              
+          <label><strong>Price:</strong> </label><br>
+          <input type="text" name="price" id="pamount" placeholder="Price in $" autocomplete="off" value = ${product.price}><br><br>
+
+
+          <label><strong>Category of Product</strong></label><br>
+          <input type="text" name="category" id="pcategory" placeholder="Enter Category" autocomplete="off" value = ${product.category}><br><br>
+          <label><strong>Upload image</strong></label><br>
+          <input class="product-image" type="file" id="pfile" name="file"><br><br>
+        </form>
+
+          `;
+          Swal.fire({
+            title: "Update product",
+            html: formHTML,
+            confirmButtonText: "Update",
+            preConfirm: async () => {
+              const ppname = document.getElementById("pname");
+              const pdesc = document.getElementById("pdescription");
+              const pprice = document.getElementById("pamount");
+              const pcategory = document.getElementById("pcategory");
+              const pimage = document.getElementById("pfile");
+              const UpdateformData = new FormData();
+              UpdateformData.append("name", ppname.value);
+              UpdateformData.append("description", pdesc.value);
+              UpdateformData.append("category", pcategory.value);
+              UpdateformData.append("price", pprice.value);
+              // for (let i = 0; i < images.files.length; i++) {
+              //   UpdateformData.append("image", pimage.files[i]);
+              // }
+              await fetch(`http://localhost:3000/products/update/${dataId}`, {
+                method: "PUT",
+                headers: {
+                  "auth-token": token,
+                },
+                body: UpdateformData,
+              })
+                .then((res) => {
+                  if (res.ok) return res.json();
+                })
+                .then(({ Message }) => {
+                  Swal.fire({
+                    title: "Success",
+                    icon: "success",
+                    text: Message,
+                  });
+                });
+            },
+          });
+        });
+    });
+  });
+};
 
 const deleteProducts = () => {
   const deleteButtons = [...document.getElementsByClassName("btn-delete")];
@@ -74,17 +153,14 @@ const deleteProducts = () => {
 // ---------Deleting a product
 const deleteProduct = async (id) => {
   try {
-    const result = await fetch(
-      `https://risefarmer360.onrender.com/products/delete/${id}`,
-      {
-        method: "DELETE",
-        headers: {
-          "Content-Type": "application/json",
-          "auth-token": token,
-        },
-        mode: "cors",
-      }
-    );
+    const result = await fetch(`http://localhost:3000/products/delete/${id}`, {
+      method: "DELETE",
+      headers: {
+        "Content-Type": "application/json",
+        "auth-token": token,
+      },
+      mode: "cors",
+    });
     const response = await result.json();
     console.log(response);
     if (result.status == 200) {
@@ -108,6 +184,8 @@ const deleteProduct = async (id) => {
     alert(error.message);
   }
 };
+
+const updateProduct = async (id) => {};
 
 // ----------Add Product Modal open
 
@@ -139,16 +217,13 @@ submitButton.addEventListener("click", async (e) => {
         formData.append("image", images.files[i]);
       }
       try {
-        const result = await fetch(
-          "https://risefarmer360.onrender.com/products/add",
-          {
-            method: "POST",
-            headers: {
-              "auth-token": token,
-            },
-            body: formData,
-          }
-        );
+        const result = await fetch("http://localhost:3000/products/add", {
+          method: "POST",
+          headers: {
+            "auth-token": token,
+          },
+          body: formData,
+        });
         const response = await result.json();
         if (result.status == 201) {
           Swal.fire({

@@ -15,23 +15,20 @@ registerButton.addEventListener("click", async () => {
     confirmButtonText: "Yes",
     preConfirm: async () => {
       try {
-        const result = await fetch(
-          "https://risefarmer360.onrender.com/user/register",
-          {
-            method: "POST",
-            headers: {
-              "Content-Type": "application/json",
-            },
-            body: JSON.stringify({
-              email: email,
-              password: password,
-              name: fname,
-              role: role,
-              phone: phone,
-              location: location,
-            }),
-          }
-        );
+        const result = await fetch("http://localhost:3000/user/register", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({
+            email: email,
+            password: password,
+            name: fname,
+            role: role,
+            phone: phone,
+            location: location,
+          }),
+        });
         const response = await result.json();
         if (result.status == 201) {
           Swal.fire({
@@ -67,19 +64,16 @@ loginButton.addEventListener("click", async () => {
   loginButton.disabled = true;
 
   try {
-    const result = await fetch(
-      "https://risefarmer360.onrender.com/user/login",
-      {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({
-          email,
-          password,
-        }),
-      }
-    );
+    const result = await fetch("http://localhost:3000/user/login", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        email,
+        password,
+      }),
+    });
     const response = await result.json();
     localStorage.setItem("userData", JSON.stringify(response.user));
     console.log(response.user);
