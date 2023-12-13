@@ -78,7 +78,7 @@ const veggies = document.getElementById("vegetables");
 const fruits = document.getElementById("Fruits");
 const locals = document.getElementById("Local");
 document.addEventListener("DOMContentLoaded", async () => {
-  await fetch("http://localhost:30001/products", {
+  await fetch("http://localhost:3000/products", {
     method: "GET",
   })
     .then(async (res) => {
