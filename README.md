@@ -39,7 +39,7 @@ Please adhere to this project's `code of conduct`.
 
 ## Demo
 
-Insert gif or link to demo
+Visit here https://gasanadj.github.io/demo_rise360/ 
 
 ## Documentation
 
